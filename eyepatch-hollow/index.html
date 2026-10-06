@@ -570,13 +570,44 @@
   .hero h1{font-size:clamp(30px,4.4vw,52px)}
   @media(max-width:860px){.hero>div{width:100%}.hero .heroshot{width:100%}}
 
-  /* 아이패치 클로즈업으로 교체 — 패치가 가운데 오게 */
-  .hero .heroshot img{object-position:42% 50%}
 
-  /* 배경을 히어로 사진 톤(누드)으로. 포인트는 VT 딥틸 유지해 메디큐브와 구분 */
-  :root{--tone:#FAF1ED; --tone-2:#F3E1DB}
-  .hero::after{background:linear-gradient(90deg,rgba(250,241,237,0) 30%,rgba(250,241,237,.86) 50%,var(--tone) 62%)}
-  @media(max-width:860px){.hero::after{background:linear-gradient(180deg,rgba(250,241,237,0) 34%,rgba(250,241,237,.86) 62%,var(--tone) 92%)}}
+
+  /* 2026-10-07 rspot-vn 댓글: 같은 줄 스텝 박스 높이 맞춤, 레퍼런스가 하나면 가운데 */
+  .concept{align-items:stretch}
+  .refs{grid-template-columns:repeat(auto-fit,minmax(220px,300px));justify-content:center}
+
+  /* showcase: 메디큐브식 제품 정보 (2026-10-07) */
+  .showcase{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(16px,2.4vw,30px);align-items:stretch}
+  @media(max-width:760px){.showcase{grid-template-columns:1fr}}
+  .sc-shot{margin:0;border-radius:var(--r);overflow:hidden;min-height:320px}
+  .sc-shot img{display:block;width:100%;height:100%;object-fit:cover}
+  .sc-body{display:flex;flex-direction:column;justify-content:center;gap:14px}
+  .sc-name{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(22px,2.6vw,32px);line-height:1.1;color:var(--deep);margin:0}
+  .sc-body .pmeta{margin:0}
+  .sc-ings{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.6vw,18px)}
+  .sc-ings figure{margin:0;text-align:center}
+  .sc-ings img{display:block;width:100%;max-width:130px;aspect-ratio:1;object-fit:cover;border-radius:50%;margin:0 auto 8px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+  .sc-ings figcaption{font-size:13.5px;font-weight:700;color:var(--deep)}
+  .sc-card{background:var(--white);border-radius:var(--r);padding:clamp(16px,2vw,22px) clamp(18px,2.2vw,26px);box-shadow:0 2px 16px rgba(0,0,0,.06)}
+  .sc-card ul{margin:0;padding-left:18px;display:grid;gap:8px;font-size:15px;color:var(--ink-2)}
+  .sc-card b{color:var(--ink)}
+
+  /* 히어로가 제품 연출컷(가로형)이면 가운데를 보여준다 */
+  .hero .heroshot img{object-position:50% 50%}
+
+  /* 제품 연출컷은 잘리면 안 된다. 히어로 높이를 사진 비율에 맞춘다 */
+  .hero{min-height:clamp(330px,30vw,430px)}
+  .hero .heroshot img{object-fit:contain;object-position:50% 50%}
+  .hero .heroshot{background:var(--tone)}
+
+  /* 같은 줄 스텝 박스 높이 맞추기 (원칙 16) */
+  .concept{align-items:stretch}
+  .concept>.step{height:100%;display:flex;flex-direction:column}
+  .concept>.step .stbody{flex:1}
+  :root{--tone:#E9F4F3;--tone-2:#D6EAE8;--deep:#13605B;--deep-2:#2E8F88;--mint:#8AC3BE;--mint-ink:#13605B;--mint-soft:#DCEFED;--mint-line:#AFD9D5;--False:#F2F9F8;--line:#D5E4E2;}
+.hero::after{background:linear-gradient(90deg,rgba(233,244,243,0) 30%,rgba(233,244,243,.86) 50%,var(--tone) 62%)}
+@media(max-width:860px){.hero::after{background:linear-gradient(180deg,rgba(233,244,243,0) 34%,rgba(233,244,243,.86) 62%,var(--tone) 92%)}}
+
 </style>
 </head>
 <body>

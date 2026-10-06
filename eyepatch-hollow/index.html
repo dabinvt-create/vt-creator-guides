@@ -51,6 +51,7 @@
             border:1px solid var(--line);border-radius:999px;padding:6px 13px}
   .heroshot{background:var(--chrome);border-radius:var(--r);padding:clamp(11px,1.6vw,16px);
             margin:0;box-shadow:0 1px 0 #FFFFFF inset,0 8px 22px rgba(30,45,48,.09)}
+  .heroshot video{display:block;width:auto;max-width:100%;max-height:clamp(320px,42vw,460px);aspect-ratio:9/16;border-radius:10px;margin-inline:auto;background:#000}
   .heroshot img{display:block;width:auto;max-width:100%;max-height:clamp(260px,34vw,380px);height:auto;border-radius:10px;margin-inline:auto}
   .chromerule{height:2px;border-radius:2px;margin:0 0 clamp(20px,3vw,30px);
               background:linear-gradient(90deg,#CBD4D6 0%,#FFFFFF 22%,#B7C3C5 50%,#FFFFFF 78%,#CBD4D6 100%)}
@@ -420,6 +421,104 @@
   /* 메디큐브식 슬로건 제목 (hero.slogan: true) */
   .hero h1.slogan{text-transform:uppercase;letter-spacing:-.01em;line-height:1;font-size:clamp(26px,3.3vw,40px)}
   @media(min-width:861px){.hero h1.slogan{white-space:nowrap}}
+
+  /* ===== 메디큐브식 스킨 (2026-10-06) =====
+     구성은 그대로 두고 비주얼만 바꾼다. 배경을 제품 톤으로 꽉 채우고,
+     섹션 제목은 가운데 큰 대문자, 스텝은 숫자 큰 2열 카드, 라벨은 알약. */
+  :root{
+    --tone:#E9F2F1;          /* 페이지 배경, 제품 톤 */
+    --tone-2:#DCEBE9;
+    --deep:#0E4F4C;          /* 메디큐브의 브라운 자리 */
+    --deep-2:#157571;
+    --r:20px;
+  }
+  body{background:var(--tone);background-image:none}
+  .page{max-width:1120px}
+
+  /* 히어로: 제목을 크게, 제품컷을 배경 톤 위에 */
+  .hero{grid-template-columns:1fr .85fr;padding-block:clamp(30px,5vw,70px) clamp(20px,3vw,36px)}
+  .kicker{color:var(--deep-2)}
+  h1{font-size:clamp(34px,6vw,68px);line-height:.96;letter-spacing:-.03em;
+     text-transform:uppercase;font-style:italic;font-weight:800;color:var(--deep)}
+  h1 i{color:var(--deep-2)}
+  .hero h1.slogan{font-size:clamp(34px,6vw,68px);letter-spacing:-.03em}
+  .sub{font-size:clamp(16px,1.7vw,20px);color:var(--ink-2)}
+  .heroshot{background:none;box-shadow:none;padding:0}
+  .heroshot img{max-height:clamp(280px,38vw,420px);border-radius:var(--r)}
+  .chromerule{display:none}
+
+  /* 섹션 제목: 가운데, 크게, 번호는 뺀다 */
+  .sh{justify-content:center;margin-bottom:clamp(18px,2.6vw,28px)}
+  .sh .n{display:none}
+  .sh b{font-size:clamp(26px,4vw,44px);color:var(--deep);letter-spacing:-.01em;text-align:center}
+  .lede{text-align:center;margin-inline:auto}
+
+  /* 카드: 흰 라운드, 선 대신 그림자 */
+  .card,.step,.ddbox,.lane,.notice,.prod,.ref,.ord{
+    border-color:transparent;border-radius:var(--r);
+    box-shadow:0 2px 16px rgba(14,79,76,.07)}
+
+  /* 스텝: 2열 그리드, 숫자 크게, 세로 적층 */
+  .concept>.step{margin-bottom:0}
+  .concept{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,22px);align-items:start}
+  @media(max-width:860px){.concept{grid-template-columns:1fr}}
+  .conhead{grid-column:1 / -1;text-align:center;color:var(--deep-2)}
+  .step .sthead{background:none;border-bottom:0;padding:clamp(18px,2.2vw,24px) clamp(18px,2.2vw,24px) 6px;
+                align-items:center;gap:14px}
+  .step .sthead .sn{background:none;border:0;border-radius:0;padding:0;
+                    font-size:clamp(38px,4.4vw,52px);line-height:.85;color:var(--deep);opacity:.9}
+  .step .sthead h3{font-size:clamp(16px,1.9vw,20px);text-transform:uppercase;font-weight:800;
+                   color:var(--deep);letter-spacing:-.01em}
+  .step .warn{background:none;border-bottom:0;color:var(--ink-3);padding-top:0;
+              padding-bottom:4px;letter-spacing:.08em}
+  .cols,.cols.wp,.cols.wp.stack{grid-template-columns:1fr}
+  .col+.col{border-left:0;border-top:0}
+  .col.shot{background:none;padding-block:4px}
+  .col.shot img{max-width:100%;border-radius:12px}
+
+  /* 라벨을 알약으로 */
+  .col h5{display:inline-block;background:var(--deep);color:#FFFFFF;border-radius:999px;
+          padding:5px 14px;font-size:10.5px;letter-spacing:.12em;margin-bottom:12px}
+  .col.dir h5,.col.talk h5{color:#FFFFFF}
+  .col.talk li{background:var(--tone-2);border-left-color:var(--deep-2);border-radius:10px}
+  .col.dir li::before{background:var(--deep-2)}
+
+  /* 시그니처 바, 체크, 알약류 색 맞추기 */
+  .sig{background:var(--deep)}
+  .sig .sl{color:#9FE0DC}
+  .check li::before,.ways li::before{color:var(--deep)}
+  .ways li::before{background:var(--tone-2);border-color:transparent}
+  .keyw{color:var(--deep);background:var(--tone-2);border-color:transparent}
+  .ddbox.ok h5,.ddbox.ok li::before{color:var(--deep)}
+  .prod .pmeta{color:var(--deep-2)}
+  .ing .dot{background:var(--deep-2)}
+  .targets li{background:var(--tone-2);border-color:transparent}
+  .lane .lhead{background:var(--tone-2);border-bottom:0;font-size:14px;color:var(--deep);
+               text-transform:uppercase;font-weight:800;letter-spacing:.04em}
+  .shape{background:var(--tone-2);border-left-color:var(--deep-2);border-radius:10px}
+  .ref:hover{border-color:transparent;box-shadow:0 6px 22px rgba(14,79,76,.14)}
+
+  /* 스텝 번호: 메디큐브처럼 숫자만 크게, Step 은 위에 작게 */
+  .step .sthead .sn{display:flex;flex-direction:column;align-items:center;line-height:.8;
+                    font-size:clamp(44px,5vw,60px)}
+  .step .sthead .sn s{text-decoration:none;font-size:11px;letter-spacing:.16em;
+                      text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;font-weight:700}
+  .step .sthead{align-items:center}
+  .step .sthead h3{flex:1}
+
+  /* 스텝 사진: 메디큐브처럼 작은 세로 컷. 카드 길이가 들쭉날쭉해지는 걸 막는다 */
+  .col.shot img{max-height:clamp(220px,24vw,280px);width:auto;max-width:100%;margin-inline:auto}
+  .col.shot.wide img{max-height:clamp(180px,20vw,230px)}
+  .hookshow img{max-height:260px;width:auto}
+  .lanes.one .lane{grid-template-columns:minmax(0,220px) 1fr}
+  .lanes.one .slot{aspect-ratio:9/12}
+
+  /* 카드 안 소제목도 메디큐브처럼 큼직하게 */
+  .ddbox h5,.panel h4,.capbox h5,.notes h4{font-size:clamp(15px,1.7vw,19px);letter-spacing:.02em;
+          text-transform:uppercase;color:var(--deep);margin-bottom:15px}
+  .ddbox.no h5{color:var(--red-ink)}
+  .refs{justify-content:center}
+  .capbox p,.keyw{font-size:16px}
 </style>
 </head>
 <body>
@@ -466,7 +565,7 @@
 
       <div class="concept" data-id="a">
       <div class="step">
-        <div class="sthead"><span class="sn">Step 1</span><h3>Point at the spot</h3></div>
+        <div class="sthead"><span class="sn"><s>Step</s>1</span><h3>Point at the spot</h3></div>
         <div class="warn">Don't read these word for word. Say it your way.</div>
         <div class="cols">
           <div class="col dir"><h5>Directions</h5><ul>
@@ -482,7 +581,7 @@
       </div>
 
       <div class="step">
-        <div class="sthead"><span class="sn">Step 2</span><h3>Give it the right name</h3></div>
+        <div class="sthead"><span class="sn"><s>Step</s>2</span><h3>Give it the right name</h3></div>
         <div class="warn">Don't read these word for word. Say it your way.</div>
         <div class="cols wp">
           <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/eyepatch-hollow/img/step-name.jpg" alt="Creator on camera with an eye diagram inset pointing to the tear trough under the inner eye"></figure></div>
@@ -499,7 +598,7 @@
       </div>
 
       <div class="step">
-        <div class="sthead"><span class="sn">Step 3</span><h3>Scoop and stick</h3></div>
+        <div class="sthead"><span class="sn"><s>Step</s>3</span><h3>Scoop and stick</h3></div>
         <div class="warn">Don't read these word for word. Say it your way.</div>
         <div class="cols wp">
           <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/eyepatch-hollow/img/step-stick.jpg" alt="Creator smoothing a clear gel patch onto the dip under her inner eye with both hands"></figure></div>
@@ -515,7 +614,7 @@
       </div>
 
       <div class="step">
-        <div class="sthead"><span class="sn">Step 4</span><h3>The 30 minutes</h3></div>
+        <div class="sthead"><span class="sn"><s>Step</s>4</span><h3>The 30 minutes</h3></div>
         <div class="warn">Don't read these word for word. Say it your way.</div>
         <div class="cols wp">
           <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/eyepatch-hollow/img/step-clear.jpg" alt="Side close-up of a clear gel patch sitting under the eye"></figure></div>
@@ -532,7 +631,7 @@
       </div>
 
       <div class="step">
-        <div class="sthead"><span class="sn">Step 5</span><h3>Peel and land it on skin</h3></div>
+        <div class="sthead"><span class="sn"><s>Step</s>5</span><h3>Peel and land it on skin</h3></div>
         <div class="warn">Don't read these word for word. Say it your way.</div>
         <div class="cols wp">
           <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/eyepatch-hollow/img/step-peel.jpg" alt="Creator peeling a gel patch off, one patch still on the other eye"></figure></div>

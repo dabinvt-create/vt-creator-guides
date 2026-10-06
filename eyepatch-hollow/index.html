@@ -519,6 +519,56 @@
   .ddbox.no h5{color:var(--red-ink)}
   .refs{justify-content:center}
   .capbox p,.keyw{font-size:16px}
+
+  /* 히어로: 메디큐브처럼 사진을 화면 끝까지 깔고 제목을 그 위에 */
+  .hero{position:relative;grid-template-columns:1fr;min-height:clamp(300px,34vw,440px);
+        align-content:end;gap:0;padding:0;overflow:hidden;border-radius:0;
+        margin-inline:calc(-1 * clamp(16px,3.5vw,40px));margin-bottom:clamp(22px,3vw,34px)}
+  .hero>div{position:relative;z-index:2;padding:clamp(22px,3.4vw,44px) clamp(20px,4vw,52px) clamp(24px,3.6vw,46px)}
+  .hero .heroshot{position:absolute;inset:0;z-index:0;margin:0;padding:0;border-radius:0}
+  .hero .heroshot img{width:100%;height:100%;max-height:none;object-fit:cover;object-position:50% 38%;
+                      border-radius:0;margin:0}
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;
+               background:linear-gradient(180deg,rgba(233,242,241,0) 34%,rgba(233,242,241,.72) 62%,var(--tone) 97%)}
+  .hero .brandmark{margin-bottom:clamp(10px,1.4vw,16px)}
+  .hero h1{text-shadow:0 1px 0 rgba(255,255,255,.35)}
+  @media(max-width:700px){.hero{min-height:360px}
+    .hero::after{background:linear-gradient(180deg,rgba(233,242,241,0) 20%,rgba(233,242,241,.8) 52%,var(--tone) 92%)}}
+
+  /* 히어로 사진: 눈가가 보이게 아래쪽을 잡고, 로고와 kicker 는 흰 글씨로 */
+  .hero{min-height:clamp(380px,42vw,560px)}
+  .hero .heroshot img{object-position:50% 72%}
+  .hero .brandmark img{filter:brightness(0) invert(1);opacity:.95}
+  .hero .kicker{color:#FFFFFF;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+  .hero::after{background:linear-gradient(180deg,rgba(233,242,241,0) 28%,rgba(233,242,241,.6) 54%,var(--tone) 92%)}
+
+  /* 제목이 눈을 가리지 않게: 사진 영역을 키우고 글자는 아래 흐린 구간에 */
+  .hero{min-height:clamp(440px,52vw,680px)}
+  .hero .heroshot img{object-position:50% 58%}
+  .hero::after{background:linear-gradient(180deg,rgba(233,242,241,0) 42%,rgba(233,242,241,.55) 62%,rgba(233,242,241,.93) 80%,var(--tone) 96%)}
+
+  /* 메디큐브 넥라인 구조: 사진은 왼쪽, 제목은 오른쪽 빈 자리 */
+  .hero{align-content:center;min-height:clamp(420px,46vw,600px)}
+  .hero .heroshot{inset:0 auto 0 0;width:64%}
+  .hero .heroshot img{object-position:52% 56%}
+  .hero::after{background:linear-gradient(90deg,rgba(233,242,241,0) 34%,rgba(233,242,241,.86) 54%,var(--tone) 66%)}
+  .hero>div{margin-left:auto;width:min(46%,520px);padding-block:clamp(20px,3vw,36px)}
+  .hero .brandmark img{filter:none;opacity:.85}
+  .hero .kicker{color:var(--deep-2);text-shadow:none}
+  .hero h1{text-shadow:none}
+  @media(max-width:860px){
+    .hero{align-content:end;min-height:420px}
+    .hero .heroshot{inset:0;width:100%}
+    .hero>div{width:100%;margin-left:0}
+    .hero::after{background:linear-gradient(180deg,rgba(233,242,241,0) 34%,rgba(233,242,241,.86) 62%,var(--tone) 92%)}
+  }
+
+  /* 제목 자리를 넓혀 줄이 잘게 쪼개지지 않게 */
+  .hero>div{width:min(54%,620px)}
+  .hero .heroshot{width:58%}
+  .hero::after{background:linear-gradient(90deg,rgba(233,242,241,0) 30%,rgba(233,242,241,.86) 50%,var(--tone) 62%)}
+  .hero h1{font-size:clamp(30px,4.4vw,52px)}
+  @media(max-width:860px){.hero>div{width:100%}.hero .heroshot{width:100%}}
 </style>
 </head>
 <body>
@@ -532,7 +582,7 @@
       <p class="sub">30 minutes, right on the spot.</p>
     </div>
     <figure class="heroshot">
-      <img src="https://dabinvt-create.github.io/vt-creator-guides/eyepatch-hollow/img/product-jar.jpg" alt="VT PDRN Hydrogel Eye Patch, an open silver jar with stacked clear gel patches">
+      <img src="https://dabinvt-create.github.io/vt-creator-guides/eyepatch-hollow/img/hero.jpg" alt="Close-up of the under-eye area with the patch zone catching the light">
     </figure>
   </header>
 

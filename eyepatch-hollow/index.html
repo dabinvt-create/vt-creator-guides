@@ -349,7 +349,7 @@
        display:block;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
   .ref:hover{border-color:var(--mint);transform:translateY(-2px)}
   .ref:focus-visible{outline:2px solid var(--mint-ink);outline-offset:2px}
-  .ref img{display:block;width:100%;aspect-ratio:9/11;object-fit:cover}
+  .ref img,.ref video{display:block;width:100%;aspect-ratio:9/11;object-fit:cover}
   .ref .rb{padding:13px 15px}
   .ref .rb b{display:block;font-family:var(--display);font-weight:700;font-size:14px;color:var(--ink);
              margin-bottom:3px}
@@ -569,6 +569,14 @@
   .hero::after{background:linear-gradient(90deg,rgba(233,242,241,0) 30%,rgba(233,242,241,.86) 50%,var(--tone) 62%)}
   .hero h1{font-size:clamp(30px,4.4vw,52px)}
   @media(max-width:860px){.hero>div{width:100%}.hero .heroshot{width:100%}}
+
+  /* 아이패치 클로즈업으로 교체 — 패치가 가운데 오게 */
+  .hero .heroshot img{object-position:42% 50%}
+
+  /* 배경을 히어로 사진 톤(누드)으로. 포인트는 VT 딥틸 유지해 메디큐브와 구분 */
+  :root{--tone:#FAF1ED; --tone-2:#F3E1DB}
+  .hero::after{background:linear-gradient(90deg,rgba(250,241,237,0) 30%,rgba(250,241,237,.86) 50%,var(--tone) 62%)}
+  @media(max-width:860px){.hero::after{background:linear-gradient(180deg,rgba(250,241,237,0) 34%,rgba(250,241,237,.86) 62%,var(--tone) 92%)}}
 </style>
 </head>
 <body>
@@ -582,7 +590,7 @@
       <p class="sub">30 minutes, right on the spot.</p>
     </div>
     <figure class="heroshot">
-      <img src="https://dabinvt-create.github.io/vt-creator-guides/eyepatch-hollow/img/hero.jpg" alt="Close-up of the under-eye area with the patch zone catching the light">
+      <img src="https://dabinvt-create.github.io/vt-creator-guides/eyepatch-hollow/img/hero.jpg" alt="Close-up of a hydrogel patch sitting under the eye">
     </figure>
   </header>
 

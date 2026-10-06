@@ -579,8 +579,10 @@
   /* showcase: 메디큐브식 제품 정보 (2026-10-07) */
   .showcase{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(16px,2.4vw,30px);align-items:stretch}
   @media(max-width:760px){.showcase{grid-template-columns:1fr}}
-  .sc-shot{margin:0;border-radius:var(--r);overflow:hidden;min-height:320px}
-  .sc-shot img{display:block;width:100%;height:100%;object-fit:cover}
+  .sc-shot{margin:0;border-radius:var(--r);overflow:hidden;min-height:320px;background:var(--sc-bg,var(--white))}
+  .sc-shot{display:flex;align-items:center;justify-content:center;padding:clamp(18px,3vw,40px)}
+  .sc-shot img{display:block;width:auto;max-width:78%;max-height:clamp(300px,34vw,440px);object-fit:contain;
+    -webkit-mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 62%,transparent 100%)}
   .sc-body{display:flex;flex-direction:column;justify-content:center;gap:14px}
   .sc-name{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(22px,2.6vw,32px);line-height:1.1;color:var(--deep);margin:0}
   .sc-body .pmeta{margin:0}
@@ -801,43 +803,26 @@
   </section>
 
   <section>
-    <div class="sh"><b>The product, in short</b></div>
-    <div class="prod">
-      <div>
-        <p class="pname">PDRN Hydrogel Eye Patch</p>
+    <div class="sh"><b>About the patch</b></div>
+    <div class="showcase">
+      <figure class="sc-shot"><img src="https://dabinvt-create.github.io/vt-creator-guides/eyepatch-hollow/img/showcase.jpg" alt="PDRN Hydrogel Eye Patch jar with one patch lifted out"></figure>
+      <div class="sc-body">
+        <p class="sc-name">PDRN Hydrogel Eye Patch</p>
         <p class="pmeta">60 patches / 30 pairs<span class="sep"></span>30 min wear<span class="sep"></span>Spatula included</p>
-
-        <ul class="ing">
-          <li><span class="dot"></span><div>
-            <b>Korean wild ginseng PDRN</b>
-            <span>Low molecular weight, made to sink in</span>
-          </div></li>
-          <li><span class="dot"></span><div>
-            <b>Retinal &amp; 7-peptide complex</b>
-            <span>Smooths the look of fine lines</span>
-          </div></li>
-          <li><span class="dot"></span><div>
-            <b>Low-molecular collagen &amp; caffeine</b>
-            <span>The area looks plumper and less puffy</span>
-          </div></li>
-        </ul>
-
-        <ul class="targets">
-          <li>Puffiness</li>
-          <li>Under-eye lines</li>
-          <li>Dark circles</li>
-          <li>Crow's feet</li>
-        </ul>
+        <div class="sc-ings">
+          <figure><img src="https://dabinvt-create.github.io/vt-creator-guides/eyepatch-hollow/img/ing-pdrn.jpg" alt="Panax ginseng PDRN"><figcaption>Panax ginseng PDRN</figcaption></figure>
+          <figure><img src="https://dabinvt-create.github.io/vt-creator-guides/eyepatch-hollow/img/ing-peptide.jpg" alt="Retinal + 7 peptides"><figcaption>Retinal + 7 peptides</figcaption></figure>
+          <figure><img src="https://dabinvt-create.github.io/vt-creator-guides/eyepatch-hollow/img/ing-collagen.jpg" alt="Collagen + caffeine"><figcaption>Collagen + caffeine</figcaption></figure>
+        </div>
+        <div class="sc-card"><ul>
+            <li><b>Korean wild ginseng PDRN</b>, low molecular weight so it sinks in</li>
+            <li><b>Retinal and a 7-peptide complex</b> smooth the look of fine lines</li>
+            <li><b>Low-molecular collagen and caffeine</b> for a plumper, less puffy look</li>
+            <li>60 patches, 30 pairs. <b>30 minutes</b> and the gel goes clear</li>
+        </ul></div>
       </div>
     </div>
   </section>
-
-  <footer>
-    <div class="footmark"><img src="https://dabinvt-create.github.io/vt-creator-guides/eyepatch-hollow/img/logo-black.png" alt="VT Cosmetics"></div>
-    Global Marketing<br>
-    PDRN Hydrogel Eye Patch<span class="sep"></span>Creator Brief<span class="sep"></span>2026
-  </footer>
-</div>
 
 <script>
   (function () {

@@ -612,6 +612,36 @@
   @media(min-width:861px){.hero h1.slogan{white-space:normal}}
   .hero h1{overflow-wrap:break-word;text-wrap:balance}
   .hero h1.slogan{font-size:clamp(28px,3.6vw,46px);line-height:1.02}
+
+  /* 훅 지정형 (type: hook) 첫 장면 카드. 사진 위에 화면 자막을 실제 크기 느낌으로 (2026-10-07) */
+  .hk{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:clamp(16px,2.6vw,32px);align-items:center;
+      background:var(--white);border-radius:var(--r);padding:clamp(14px,2vw,22px);box-shadow:0 2px 16px rgba(0,0,0,.06)}
+  @media(max-width:700px){.hk{grid-template-columns:1fr}.hk-shot{max-width:320px;margin-inline:auto!important;width:100%}}
+  .hk-shot{position:relative;margin:0;aspect-ratio:9/13;border-radius:calc(var(--r) - 4px);overflow:hidden;background:var(--black)}
+  .hk-shot img{display:block;width:100%;height:100%;object-fit:cover}
+  .hk-over{position:absolute;left:50%;top:22%;transform:translateX(-50%);width:max-content;max-width:84%;
+           background:#FFFFFF;color:#111111;font-family:var(--body);font-weight:700;font-size:clamp(14px,1.6vw,17px);
+           line-height:1.25;text-align:center;padding:6px 10px;border-radius:7px;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+  .hk-rows{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+  .hk-rows li{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:baseline;
+              padding-bottom:12px;border-bottom:1px solid var(--tone-2,var(--line))}
+  .hk-rows li:last-child{border-bottom:0;padding-bottom:0}
+  .hk-rows s{text-decoration:none;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.13em;
+             text-transform:uppercase;color:var(--deep-2,var(--mint-ink))}
+  .hk-rows p{margin:0;font-size:16px;color:var(--ink)}
+  @media(max-width:420px){.hk-rows li{grid-template-columns:1fr;gap:4px}}
+  .hk-var{margin-top:18px;background:var(--tone,var(--mint-soft));border-radius:calc(var(--r) - 6px);padding:12px 16px}
+  .hk-var h5{margin:0 0 6px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.13em;
+             text-transform:uppercase;color:var(--deep,var(--mint-ink))}
+  .hk-var ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:15px;color:var(--ink-2)}
+
+  /* 2026-10-07 폰에서 콘셉트 카드 사진과 글이 옆으로 붙어 글이 좁게 깨짐(stickbalm-wrinkle). 502줄 규칙이 640px 미디어쿼리를 덮어써서 맨 끝에서 다시 세로로 */
+  @media(max-width:640px){
+    .lanes.one .lane{grid-template-columns:1fr}
+    .lanes.one .slot{aspect-ratio:auto;max-height:420px}
+    .lanes.one .slot img{object-fit:cover;width:100%;height:100%;max-height:420px}
+    .lanes.one .lane p{font-size:16px}
+  }
   :root{--tone:#E7F6F9;--tone-2:#D1EDF3;--deep:#0F5A68;--deep-2:#2A8FA3;--mint:#6BC0D2;--mint-ink:#0F5A68;--mint-soft:#DDF1F6;--mint-line:#A9DCE7;--False:#F1FAFC;--line:#CFE6EC;}
 .hero::after{background:linear-gradient(90deg,rgba(231,246,249,0) 30%,rgba(231,246,249,.86) 50%,var(--tone) 62%)}
 @media(max-width:860px){.hero::after{background:linear-gradient(180deg,rgba(231,246,249,0) 34%,rgba(231,246,249,.86) 62%,var(--tone) 92%)}}

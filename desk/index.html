@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>가이드 데스크</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  /* 레이아웃: 위에 팀원 탭, 아래 왼쪽 케이스 목록 + 오른쪽 대화창 (메신저 구조). 폰에서는 목록 위, 대화 아래로 쌓임 */
+  :root{
+    --bg:#EEF1F2; --panel:#FFFFFF; --ink:#1B2426; --ink2:#5B6B6E; --line:#D7DDDF;
+    --mint:#2FC0BC; --mintink:#0A6A67; --mintsoft:#DEF4F3; --me:#0A6A67; --meink:#FFFFFF;
+    --claude:#F5F8F8; --warn:#B7791F; --warnsoft:#FDF3E1; --done:#1A7C45; --donesoft:#E6F4EB;
+    --display:"Poppins","Noto Sans KR",system-ui,sans-serif;
+    --body:"Noto Sans KR",-apple-system,"Segoe UI","Malgun Gothic",sans-serif;
+  }
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+    --bg:#111617; --panel:#1A2123; --ink:#E6ECEC; --ink2:#9AAAAC; --line:#2C3639;
+    --mint:#3FD3CF; --mintink:#7FE3DF; --mintsoft:#123331; --me:#1F6F6B; --meink:#F2FBFA;
+    --claude:#161C1E; --warn:#E3B05A; --warnsoft:#3A2C12; --done:#6FD39A; --donesoft:#143323; color-scheme:dark}}
+  :root[data-theme="dark"]{
+    --bg:#111617; --panel:#1A2123; --ink:#E6ECEC; --ink2:#9AAAAC; --line:#2C3639;
+    --mint:#3FD3CF; --mintink:#7FE3DF; --mintsoft:#123331; --me:#1F6F6B; --meink:#F2FBFA;
+    --claude:#161C1E; --warn:#E3B05A; --warnsoft:#3A2C12; --done:#6FD39A; --donesoft:#143323; color-scheme:dark}
+  *{box-sizing:border-box} [hidden]{display:none!important}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14.5px;line-height:1.6;padding-inline:16px;padding-block:18px 28px}
+  .wrap{max-width:1180px;margin:0 auto;display:grid;gap:14px}
+  header{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  h1{font-family:var(--display);font-size:22px;margin:0}
+  .sub{color:var(--ink2);font-size:13px}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap}
+  .tab{font:inherit;font-size:13px;font-weight:500;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer}
+  .tab[aria-pressed="true"]{background:var(--mintink);border-color:var(--mintink);color:var(--panel)}
+  .tab .n{opacity:.7;margin-left:4px;font-variant-numeric:tabular-nums}
+  .main{display:grid;grid-template-columns:320px minmax(0,1fr);gap:14px;min-height:560px}
+  @media(max-width:820px){.main{grid-template-columns:1fr}}
+  .pane{background:var(--panel);border:1px solid var(--line);border-radius:14px;min-width:0;display:flex;flex-direction:column}
+  .listhead{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line)}
+  .listhead b{font-size:14px}
+  button.primary{font:inherit;font-weight:700;font-size:13px;border:0;border-radius:9px;padding:7px 14px;background:var(--mintink);color:var(--panel);cursor:pointer}
+  button.ghost{font:inherit;font-size:13px;border:1px solid var(--line);border-radius:9px;padding:7px 12px;background:transparent;color:var(--ink);cursor:pointer}
+  button:focus-visible,.tab:focus-visible,.case:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+  button:disabled{opacity:.5;cursor:default}
+  .cases{overflow:auto;max-height:620px}
+  .case{display:block;width:100%;text-align:left;font:inherit;color:inherit;background:transparent;border:0;border-bottom:1px solid var(--line);padding:12px 14px;cursor:pointer}
+  .case[aria-current="true"]{background:var(--mintsoft)}
+  .case .t{font-weight:700;font-size:14px;display:block}
+  .case .m{font-size:12.5px;color:var(--ink2);display:flex;gap:8px;flex-wrap:wrap;margin-top:3px}
+  .chip{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:1px 9px;background:var(--mintsoft);color:var(--mintink)}
+  .chip.wait{background:var(--warnsoft);color:var(--warn)} .chip.done{background:var(--donesoft);color:var(--done)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--warn);display:inline-block;align-self:center}
+  .empty{padding:24px 16px;color:var(--ink2);font-size:13.5px}
+  .chathead{padding:12px 16px;border-bottom:1px solid var(--line);display:grid;gap:4px}
+  .chathead h2{font-size:16px;margin:0;text-wrap:balance}
+  .meta{font-size:12.5px;color:var(--ink2);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .meta a{color:var(--mintink);font-weight:700}
+  .msgs{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:520px;min-height:300px}
+  .msg{max-width:min(78%,560px);display:grid;gap:2px}
+  .msg .who{font-size:11.5px;color:var(--ink2)}
+  .msg .b{padding:9px 13px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+  .msg.mine{align-self:flex-end;text-align:left} .msg.mine .who{text-align:right}
+  .msg.mine .b{background:var(--me);color:var(--meink);border-bottom-right-radius:4px}
+  .msg.other .b{background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:4px}
+  .msg.claude .b{background:var(--claude);border:1px solid var(--line);border-bottom-left-radius:4px}
+  .msg.claude .who{color:var(--mintink);font-weight:700}
+  .composer{border-top:1px solid var(--line);padding:10px;display:flex;gap:8px;align-items:flex-end}
+  textarea{flex:1;min-width:0;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px;resize:vertical;min-height:44px;max-height:180px}
+  .newform{padding:14px;display:grid;gap:10px;border-bottom:1px solid var(--line)}
+  .newform label{display:grid;gap:4px;font-size:12.5px;color:var(--ink2)}
+  .newform input,.newform select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:7px 10px;min-width:0}
+  .row{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+  .note{font-size:12.5px;color:var(--ink2);padding:10px 16px;border-top:1px dashed var(--line)}
+  .status{font-size:12.5px;color:var(--warn)}
+  .views{display:flex;gap:4px;border-bottom:1px solid var(--line)}
+  .view{font:inherit;font-size:14px;font-weight:700;background:transparent;border:0;border-bottom:3px solid transparent;color:var(--ink2);padding:6px 4px 8px;margin-right:14px;cursor:pointer}
+  .view[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--mint)}
+  .cat{display:grid;gap:18px}
+  .catbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .catbar input{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:7px 11px;min-width:0;flex:1 1 220px;max-width:340px}
+  .catbar label{font-size:13px;color:var(--ink2);display:flex;gap:6px;align-items:center}
+  .pgroup h3{font-size:14px;margin:6px 0 8px;color:var(--ink2);font-weight:700}
+  .gcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+  .gcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:6px;align-content:start;min-width:0}
+  .gcard .gn{font-weight:700;font-size:14.5px;overflow-wrap:anywhere}
+  .gcard .gi{font-size:13px;color:var(--ink2)}
+  .gcard .gl{display:flex;gap:12px;flex-wrap:wrap;font-size:13px}
+  .gcard .gl a{color:var(--mintink);font-weight:700}
+  .gcard .gx{font-size:12px;color:var(--ink2)}
+  .chip.ok{background:var(--mintink);color:var(--panel)} .chip.pend{background:var(--warnsoft);color:var(--warn)}
+  .cf{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12.5px;color:var(--ink2)}
+  .cf button{font:inherit;font-size:12px;font-weight:700;border:1px solid var(--mintink);color:var(--mintink);background:transparent;border-radius:8px;padding:2px 10px;cursor:pointer}
+  .chip.old{background:var(--line);color:var(--ink2)}
+  .matches{display:grid;gap:6px;background:var(--mintsoft);border-radius:10px;padding:10px 12px;font-size:13px}
+  .matches b{font-size:12.5px}
+  .matches a{color:var(--mintink);font-weight:700}
+  .prog{font-weight:700;color:var(--mintink)}
+  .callnote{margin:0;padding:0 16px 10px;font-size:12.5px;color:var(--warn)}
+  @media (prefers-reduced-motion:no-preference){.msg{animation:in .18s ease-out}@keyframes in{from{transform:translateY(4px);opacity:.6}to{transform:none;opacity:1}}}
+</style>
+</head>
+<body>
+<style>
+  .gate{max-width:380px;margin:60px auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;display:grid;gap:12px}
+  .gate h1{font-size:20px}
+  .gate label{display:grid;gap:4px;font-size:12.5px;color:var(--ink2)}
+  .gate input{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:8px 10px}
+  .whoami{margin-left:auto;font-size:12.5px;color:var(--ink2);display:flex;gap:8px;align-items:center}
+  .whoami button{font:inherit;font-size:12px;border:1px solid var(--line);background:transparent;color:var(--ink2);border-radius:8px;padding:2px 8px;cursor:pointer}
+  .msg.pending .b{opacity:.6}
+</style>
+
+<form class="gate" id="gate" hidden>
+  <h1>가이드 데스크</h1>
+  <span class="sub">처음 한 번만 적으면 이 기기에 기억해요.</span>
+  <label>이름<input id="g-name" required autocomplete="name" placeholder="예: 고남경"></label>
+  <label>팀 암호<input id="g-key" required autocomplete="off" placeholder="다빈님께 받은 암호"></label>
+  <div class="row"><button class="primary" type="submit" id="g-btn">들어가기</button></div>
+  <span class="status" id="g-status" role="status"></span>
+</form>
+
+<div class="wrap" id="app" hidden>
+  <header>
+    <h1>가이드 데스크</h1>
+    <span class="sub">케이스를 열고 메시지를 적은 뒤 "Claude에게 보내기"를 누르면 Claude 가 받아서 답해요.</span>
+    <span class="whoami"><span id="me-name"></span><button type="button" id="logout">바꾸기</button></span>
+  </header>
+  <div class="views" role="tablist"><button class="view" role="tab" id="v-cases" type="button">요청 케이스</button><button class="view" role="tab" id="v-cat" type="button">완성 가이드</button></div>
+  <section class="cat" id="catview" hidden>
+    <div class="catbar"><input id="catq" type="search" placeholder="제품이나 제목으로 찾기" aria-label="가이드 찾기"><label><input type="checkbox" id="catold"> 이전판도 보기</label><span class="sub" id="catinfo"></span></div>
+    <div id="catlist"><p class="empty">불러오는 중</p></div>
+  </section>
+  <nav class="tabs" id="tabs" aria-label="담당자"></nav>
+  <div class="main" id="caseview">
+    <section class="pane" aria-label="케이스 목록">
+      <div class="listhead"><b id="listtitle">전체 케이스</b><button class="primary" id="newbtn" type="button">새 케이스</button></div>
+      <form class="newform" id="newform" hidden>
+        <label>담당자<input id="f-owner" required list="ownerlist" placeholder="예: 고남경"><datalist id="ownerlist"></datalist></label>
+        <label>제품<input id="f-product" required placeholder="예: PDRN 캡슐크림"></label>
+        <div class="matches" id="matches" hidden></div>
+        <label>하고 싶은 메시지 (한 줄)<input id="f-message" required placeholder="예: 세안 직후 당김을 촉촉한 광채로"></label>
+        <label>대상<select id="f-target"><option>미국 소형 스킨케어 크리에이터 공용</option><option>특정 크리에이터 1명 (대화에서 핸들 알려주기)</option></select></label>
+        <label>가이드 유형<select id="f-gtype"><option value="">추천받기 (Claude 가 골라요)</option><option value="basic">기본형: 흐름 하나 고정, 말투는 자유</option><option value="lanes">자율형: 레인 A, B, C 중 고르기 (여러 명용)</option><option value="hook">훅 지정형: 터진 첫 장면 그대로</option></select></label>
+        <label>참고 영상이나 경쟁사 가이드 (선택)<input id="f-ref" placeholder="링크"></label>
+        <label>필요한 날짜 (선택)<input id="f-due" placeholder="예: 10/10"></label>
+        <div class="row"><button class="ghost" type="button" id="cancelnew">취소</button><button class="primary" type="submit" id="createbtn">케이스 열기</button></div>
+        <span class="status" id="formstatus" role="status"></span>
+      </form>
+      <div class="cases" id="cases"><p class="empty">불러오는 중</p></div>
+    </section>
+    <section class="pane" aria-label="대화">
+      <div class="chathead" id="chathead"><h2>케이스를 고르거나 새로 여세요</h2><div class="meta">왼쪽 목록에서 케이스를 누르면 대화가 열려요.</div></div>
+      <div class="msgs" id="msgs" aria-live="polite"></div>
+      <form class="composer" id="composer" hidden>
+        <textarea id="input" rows="2" placeholder="메시지 입력 (Ctrl+Enter 보내기)"></textarea>
+        <button class="primary" type="submit" id="sendbtn">Claude에게 보내기</button>
+      </form>
+      <p class="callnote" id="callnote" role="status" hidden></p>
+      <div class="note">방향 다섯 줄 승인과 대사, 사진 수정은 요청자가 정해요. 보내면 Claude 가 보통 1분 안에 받아요. 답이 길어지면 목록에 진행 상황이 떠요. 완성된 가이드는 다빈님 최종 컨펌 전이어도 바로 써도 돼요. 완성 가이드 탭과 <a href="https://docs.google.com/spreadsheets/d/1zuhqCyamfjrhMu1tMFVCK-ttzv3nG-HlWLdaNq1uxBo/edit" target="_blank" rel="noopener">가이드 바로가기 시트</a>에 같이 올라가요.</div>
+    </section>
+  </div>
+</div>
+
+<script>
+(function(){
+  var API = "https://script.google.com/macros/s/AKfycbzosvdNPyVZ9Qd4K-48XCRvIrHQfEukS0e0QPvaR4a4FpyuWnG8ubUbbcmRY67vqXYk/exec";
+  try { var q = new URLSearchParams(location.search).get("api"); if (q && /^http:\/\/(localhost|127\.0\.0\.1)[:\/]/.test(q)) API = q; } catch(e){}
+  var STATUS = {new:"접수", research:"리서치", brief:"방향 확인", writing:"작성", review:"검토", done:"완성", queued:"대기"};
+  var GTYPE = {basic:"기본형", lanes:"자율형", hook:"훅 지정형"};
+  var $ = function(id){ return document.getElementById(id); };
+  function ls(k, v){ try { if (v === undefined) return localStorage.getItem(k); if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch(e){ return null; } }
+  var me = {id: ls("desk-uid"), name: ls("desk-name") || "", key: ls("desk-key") || ""};
+  if (!me.id){ me.id = "u_" + Math.random().toString(36).slice(2, 12); ls("desk-uid", me.id); }
+  var catalog = [], catSynced = 0, view = ls("desk-view") || "cases", cases = [], tab = ls("desk-tab") || "all", sel = null, msgs = [], lastAt = 0, pend = [];
+
+  function el(tag, cls, text){ var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function fmt(ts){ if (!ts) return ""; var d = new Date(Number(ts)); return (d.getMonth()+1)+"/"+d.getDate()+" "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0"); }
+  function whoOf(d){ return (d.owner || "").trim() || "팀원"; }
+  function isMine(m){ return m.from !== "claude" && (m.from === me.id || (m.fromName && m.fromName === me.name)); }
+
+  async function get(action, extra){
+    var u = API + "?action=" + action + "&key=" + encodeURIComponent(me.key) + (extra || "") + "&_=" + Date.now();
+    var r = await fetch(u); var j = await r.json(); if (!j.ok) throw new Error(j.error || "error"); return j;
+  }
+  async function post(body){
+    body.key = me.key;
+    var r = await fetch(API, {method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body: JSON.stringify(body)});
+    var j = await r.json(); if (!j.ok) throw new Error(j.error || "error"); return j;
+  }
+
+  // 완성 가이드
+  function norm(t){ return String(t||"").toLowerCase().replace(/\s+/g,""); }
+  function link(a, label, href){ if (!href) return; var x = el("a","",label); x.href = href; x.target = "_blank"; x.rel = "noopener"; a.appendChild(x); }
+  function gcard(g){
+    var c = el("div","gcard");
+    var top = el("div","gl"); top.appendChild(el("span","chip"+(g.state==="최신"?" done":" old"), g.state||"")); if (g.updated) top.appendChild(el("span","gx",g.updated)); c.appendChild(top);
+    c.appendChild(el("div","gn", g.name)); if (g.idea) c.appendChild(el("div","gi", g.idea));
+    var l = el("div","gl"); link(l,"크리에이터용 링크",g.public); link(l,"검토판",g.edit); link(l,"팀 원본",g.source); if (l.children.length) c.appendChild(l);
+    if (g.state==="최신" || g.state==="확인 필요"){
+      var row = el("div","cf");
+      if (g.confirmed){ row.appendChild(el("span","chip ok","최종 컨펌")); row.appendChild(el("span","", "다빈 "+g.confirmed)); }
+      else { row.appendChild(el("span","chip pend","컨펌 전")); row.appendChild(el("span","", "지금 써도 돼요. 컨펌하면서 바뀌는 곳이 있으면 따로 알려드려요.")); }
+      c.appendChild(row);
+    }
+    var x = [g.check, g.note].filter(Boolean).join("  "); if (x) c.appendChild(el("div","gx", x));
+    return c;
+  }
+  function renderCatalog(){
+    var box = $("catlist"); box.textContent = "";
+    var q = norm($("catq").value), old = $("catold").checked;
+    var list = catalog.filter(function(g){ return (old || g.state==="최신" || g.state==="확인 필요") && (!q || norm(g.product+g.name+g.idea).indexOf(q) >= 0); });
+    if (!catalog.length){ box.appendChild(el("p","empty","아직 목록이 없어요.")); return; }
+    if (!list.length){ box.appendChild(el("p","empty","맞는 가이드가 없어요. 요청 케이스에서 새로 요청해 주세요.")); return; }
+    var groups = []; list.forEach(function(g){ var k = g.product; var f = groups.find(function(x){ return x.k===k; }); if (!f) groups.push(f = {k:k, items:[]}); f.items.push(g); });
+    groups.forEach(function(gr){ var s = el("div","pgroup"); s.appendChild(el("h3","", gr.k+"  "+gr.items.length)); var w = el("div","gcards"); gr.items.forEach(function(g){ w.appendChild(gcard(g)); }); s.appendChild(w); box.appendChild(s); });
+  }
+  // 새 케이스 제품 칸에 맞는 기존 가이드를 보여준다
+  function renderMatches(){
+    var box = $("matches"); box.textContent = "";
+    var toks = $("f-product").value.split(/[\s,]+/).map(norm).filter(function(t){ return t.length >= 2; });
+    var best = 0, hits = [];
+    catalog.forEach(function(g){ if (g.state!=="최신") return; var p = norm(g.product); var sc = toks.filter(function(t){ return p.indexOf(t) >= 0; }).length; if (sc > best){ best = sc; hits = [g]; } else if (sc && sc === best) hits.push(g); });
+    if (!best){ box.hidden = true; return; }
+    box.appendChild(el("b","","이 제품으로 이미 만든 가이드가 있어요. 그대로 쓸 수 있으면 요청하지 않아도 돼요."));
+    hits.slice(0,6).forEach(function(g){ var r = el("div",""); r.appendChild(document.createTextNode(g.name+(g.idea?"  "+g.idea:"")+(g.confirmed?"  (최종 컨펌)":"  (컨펌 전, 사용 가능)")+"  ")); link(r,"보기",g.public||g.edit); box.appendChild(r); });
+    box.hidden = false;
+  }
+  function setView(v){
+    view = v; ls("desk-view", v);
+    $("v-cases").setAttribute("aria-selected", String(v==="cases")); $("v-cat").setAttribute("aria-selected", String(v==="cat"));
+    $("catview").hidden = v!=="cat"; $("caseview").hidden = v!=="cases"; $("tabs").hidden = v!=="cases";
+    if (v==="cat") renderCatalog();
+  }
+  $("v-cases").onclick = function(){ setView("cases"); };
+  $("v-cat").onclick = function(){ setView("cat"); };
+  $("catq").addEventListener("input", renderCatalog); $("catold").addEventListener("change", renderCatalog);
+  $("f-product").addEventListener("input", renderMatches);
+
+  function inTab(c, t){ return t==="all" || whoOf(c)===t.slice(2); }
+  function renderTabs(){
+    var owners = [];
+    cases.forEach(function(c){ var o = whoOf(c); if (o && owners.indexOf(o) < 0) owners.push(o); });
+    owners.sort(function(a,b){ return a.localeCompare(b, "ko"); });
+    var dl = $("ownerlist"); dl.textContent = ""; owners.forEach(function(o){ var op = document.createElement("option"); op.value = o; dl.appendChild(op); });
+    var nav = $("tabs"); nav.textContent = "";
+    var items = [["all","전체"]].concat(owners.map(function(o){ return ["p:"+o, o]; }));
+    if (tab !== "all" && !items.some(function(it){ return it[0]===tab; })) tab = "all";
+    items.forEach(function(it){
+      var n = cases.filter(function(c){ return inTab(c, it[0]); }).length;
+      var b = el("button","tab"); b.type = "button"; b.setAttribute("aria-pressed", String(tab===it[0]));
+      b.appendChild(document.createTextNode(it[1])); b.appendChild(el("span","n",String(n)));
+      b.onclick = function(){ tab = it[0]; ls("desk-tab", tab); renderTabs(); renderCases(); };
+      nav.appendChild(b);
+    });
+    $("listtitle").textContent = tab==="all" ? "전체 케이스" : tab.slice(2)+" 케이스";
+  }
+  function chipCls(s){ return "chip"+(s==="done"?" done":s==="queued"?" wait":""); }
+  function renderCases(){
+    var box = $("cases"); box.textContent = "";
+    var list = cases.filter(function(c){ return inTab(c, tab); });
+    if (!list.length){ box.appendChild(el("p","empty", "아직 케이스가 없어요. 새 케이스를 누르고 담당자, 제품, 메시지 한 줄만 적으면 시작돼요.")); return; }
+    list.forEach(function(d){
+      var b = el("button","case"); b.type = "button"; b.setAttribute("aria-current", String(sel===d.id));
+      b.appendChild(el("span","t", d.title || d.product || "새 케이스"));
+      var m = el("span","m");
+      m.appendChild(el("span", chipCls(d.status), STATUS[d.status]||"접수"));
+      if (d.progress && d.status!=="done") m.appendChild(el("span","prog", d.progress));
+      if (tab==="all") m.appendChild(el("span","",whoOf(d)));
+      m.appendChild(el("span","",fmt(d.updatedAt)));
+      if (d.needsClaude) { var w = el("span",""); w.appendChild(el("span","dot")); w.appendChild(document.createTextNode(" Claude 답 기다리는 중")); m.appendChild(w); }
+      b.appendChild(m);
+      b.onclick = function(){ openCase(d.id); };
+      box.appendChild(b);
+    });
+  }
+  function renderHead(){
+    var d = cases.find(function(x){ return x.id===sel; }); var h = $("chathead"); h.textContent = "";
+    if (!d){ h.appendChild(el("h2","","케이스를 고르거나 새로 여세요")); return; }
+    h.appendChild(el("h2","", d.title || d.product));
+    var meta = el("div","meta");
+    meta.appendChild(el("span", chipCls(d.status), STATUS[d.status]||"접수"));
+    if (d.progress && d.status!=="done") meta.appendChild(el("span","prog", d.progress));
+    meta.appendChild(el("span","", (d.product||"")+(d.target?", "+d.target:"")));
+    meta.appendChild(el("span","", "유형 "+(GTYPE[d.gtype]||"추천받기")));
+    meta.appendChild(el("span","", "담당 "+whoOf(d)));
+    link(meta, "검토판 열기", d.edit); link(meta, "크리에이터용 링크", d.public);
+    h.appendChild(meta);
+  }
+  function renderMsgs(){
+    var box = $("msgs"), atBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 60; box.textContent = "";
+    msgs.concat(pend).forEach(function(m){
+      var kind = m.from==="claude" ? "claude" : (isMine(m) ? "mine" : "other");
+      var w = el("div","msg "+kind+(m.pending?" pending":""));
+      w.appendChild(el("span","who", (m.from==="claude" ? "Claude" : isMine(m) ? "나" : (m.fromName||"팀원"))+"  "+(m.pending ? "보내는 중" : fmt(m.at))));
+      w.appendChild(el("div","b", m.text)); box.appendChild(w);
+    });
+    if (!msgs.length && !pend.length) box.appendChild(el("p","empty","첫 메시지를 기다리는 중이에요."));
+    if (atBottom || pend.length) box.scrollTop = box.scrollHeight;
+  }
+  function note(t){ var n = $("callnote"); n.textContent = t || ""; n.hidden = !t; }
+
+  async function loadMsgs(reset){
+    if (!sel) return; var id = sel;
+    if (reset){ msgs = []; lastAt = 0; }
+    try {
+      var j = await get("msgs", "&caseId="+encodeURIComponent(id)+"&since="+lastAt);
+      if (id !== sel) return;
+      if (j.msgs.length || reset){
+        var have = {}; msgs.forEach(function(m){ have[m.id] = 1; });
+        j.msgs.forEach(function(m){ if (!have[m.id]) msgs.push(m); if (m.at > lastAt) lastAt = m.at; });
+        renderMsgs();
+      }
+    } catch(e){ if (reset){ $("msgs").textContent = ""; $("msgs").appendChild(el("p","empty","대화를 불러오지 못했어요. 잠시 뒤 자동으로 다시 시도해요.")); } }
+  }
+  async function loadCases(){
+    try {
+      var j = await get("cases"); cases = j.cases;
+      renderTabs(); renderCases(); if (sel) renderHead();
+      return true;
+    } catch(e){
+      if (String(e.message)==="passcode"){ logout("암호가 바뀌었어요. 다시 적어 주세요."); return false; }
+      if (!cases.length){ $("cases").textContent = ""; $("cases").appendChild(el("p","empty","목록을 불러오지 못했어요. 잠시 뒤 자동으로 다시 시도해요.")); }
+      return false;
+    }
+  }
+  async function loadCatalog(){
+    try { var j = await get("catalog"); catalog = j.catalog.items || []; catSynced = j.catalog.syncedAt || 0;
+      $("catinfo").textContent = catalog.length ? "전체 "+catalog.length+"개, "+fmt(catSynced)+" 기준" : "";
+      if (view==="cat") renderCatalog();
+    } catch(e){}
+  }
+  function openCase(id){
+    sel = id; pend = []; note(""); renderCases(); renderHead();
+    $("composer").hidden = false; $("msgs").textContent = ""; $("msgs").appendChild(el("p","empty","불러오는 중"));
+    loadMsgs(true);
+  }
+
+  $("newbtn").onclick = function(){ $("newform").hidden = false; var o = ls("desk-owner") || me.name; $("f-owner").value = o; (o ? $("f-product") : $("f-owner")).focus(); };
+  $("cancelnew").onclick = function(){ $("newform").hidden = true; };
+  $("newform").addEventListener("submit", async function(e){
+    e.preventDefault();
+    var owner = $("f-owner").value.trim(), product = $("f-product").value.trim(), message = $("f-message").value.trim();
+    if (!owner || !product || !message) return;
+    ls("desk-owner", owner);
+    $("createbtn").disabled = true; $("formstatus").textContent = "";
+    try {
+      var gtype = $("f-gtype").value, refv = $("f-ref").value.trim(), due = $("f-due").value.trim();
+      var first = "담당자: "+owner+"\n제품: "+product+"\n대상: "+$("f-target").value+"\n유형: "+(GTYPE[gtype] ? GTYPE[gtype]+" "+gtype : "추천받기")+"\n하고 싶은 메시지: "+message+
+        (refv ? "\n참고: "+refv : "")+(due ? "\n필요한 날짜: "+due : "");
+      var j = await post({action:"newCase", owner:owner, product:product, message:message, target:$("f-target").value, gtype:gtype, ref:refv, due:due, text:first, from:me.id});
+      $("newform").reset(); $("matches").hidden = true; $("newform").hidden = true; tab = "p:"+owner; ls("desk-tab", tab);
+      await loadCases(); openCase(j.id);
+    } catch(err){ $("formstatus").textContent = "케이스를 열지 못했어요. 잠시 뒤 다시 눌러 주세요."; }
+    $("createbtn").disabled = false;
+  });
+  $("composer").addEventListener("submit", async function(e){
+    e.preventDefault(); var t = $("input").value.trim(); if (!t || !sel) return;
+    var id = sel, p = {from:me.id, fromName:me.name, text:t, pending:true};
+    pend.push(p); $("input").value = ""; renderMsgs(); $("sendbtn").disabled = true;
+    try {
+      await post({action:"sendMsg", caseId:id, from:me.id, fromName:me.name, text:t}); note("");
+      pend = pend.filter(function(x){ return x !== p; });
+      var c = cases.find(function(x){ return x.id===id; }); if (c){ c.needsClaude = true; renderCases(); }
+      await loadMsgs(false);
+    } catch(err){
+      pend = pend.filter(function(x){ return x !== p; }); renderMsgs();
+      if (!$("input").value) $("input").value = t;
+      note("보내지 못했어요. 잠시 뒤 다시 눌러 주세요.");
+    }
+    $("sendbtn").disabled = false; $("input").focus();
+  });
+  $("input").addEventListener("keydown", function(e){ if (e.key==="Enter" && (e.ctrlKey||e.metaKey)) { e.preventDefault(); $("composer").requestSubmit(); } });
+
+  var timer = null, started = false;
+  function tick(){ if (document.visibilityState === "hidden") return; loadCases(); loadMsgs(false); }
+  async function start(){
+    $("gate").hidden = true; $("app").hidden = false; $("me-name").textContent = me.name;
+    setView(view);
+    if (!await loadCases()) return;
+    loadCatalog();
+    clearInterval(timer); timer = setInterval(tick, 5000);
+    if (started) return; started = true;
+    setInterval(loadCatalog, 300000);
+    document.addEventListener("visibilitychange", function(){ if (document.visibilityState === "visible" && me.key) tick(); });
+  }
+  function logout(msg){
+    clearInterval(timer); ls("desk-key", null); me.key = "";
+    $("app").hidden = true; $("gate").hidden = false; $("g-name").value = me.name; $("g-status").textContent = msg || "";
+  }
+  $("logout").onclick = function(){ logout(""); };
+  $("gate").addEventListener("submit", async function(e){
+    e.preventDefault(); me.name = $("g-name").value.trim(); me.key = $("g-key").value.trim(); if (!me.name || !me.key) return;
+    $("g-btn").disabled = true; $("g-status").textContent = "";
+    try { await get("ping"); ls("desk-name", me.name); ls("desk-key", me.key); start(); }
+    catch(err){ $("g-status").textContent = String(err.message)==="passcode" ? "암호가 맞지 않아요." : "연결하지 못했어요. 잠시 뒤 다시 눌러 주세요."; }
+    $("g-btn").disabled = false;
+  });
+  if (me.key && me.name) start(); else logout("");
+})();
+</script>
+</body>
+</html>

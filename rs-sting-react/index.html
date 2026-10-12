@@ -659,6 +659,34 @@
   /* 스텝 사진 자리 영상 (steps.*.video, 2026-10-08). 사진과 같은 크기 */
   .col.shot video{display:block;width:auto;max-width:100%;aspect-ratio:9/13;object-fit:cover;
                   max-height:clamp(220px,24vw,280px);border-radius:12px;margin-inline:auto;background:#000}
+
+  /* hook.big: 훅 칸을 크게 (2026-10-12 rs-sting-react 요청자 "앞부분(후킹)만 크게 강조") */
+  .hooksec.big .hk{grid-template-columns:minmax(0,420px) 1fr;padding:clamp(16px,2.6vw,30px);
+                   border:2px solid var(--deep,var(--mint-ink))}
+  .hooksec.big .sh b{font-size:clamp(26px,4vw,44px)}
+  .hooksec.big .lede{font-size:clamp(17px,1.8vw,20px)}
+  .hooksec.big .hk-over{font-size:clamp(16px,2vw,21px);padding:8px 12px}
+  .hk-shot video{display:block;width:100%;height:100%;object-fit:cover}
+  .hk-say{margin:0 0 20px;font-family:var(--display);font-weight:800;font-size:clamp(26px,3.6vw,42px);
+          line-height:1.12;color:var(--ink);letter-spacing:-.01em}
+  .hk-say s{display:block;text-decoration:none;font-weight:700;font-size:11px;letter-spacing:.13em;
+            text-transform:uppercase;color:var(--deep-2,var(--mint-ink));margin-bottom:8px}
+  .hooksec.big .hk-rows p{font-size:17px}
+  @media(max-width:700px){.hooksec.big .hk{grid-template-columns:1fr}.hooksec.big .hk-shot{max-width:400px}}
+
+  /* explain: 제품 원리 칸, 소비자 말로 (2026-10-12 rs-sting-react) */
+  .ex{background:var(--white);border-radius:var(--r);padding:clamp(16px,2.4vw,28px);box-shadow:0 2px 16px rgba(0,0,0,.06);
+      display:grid;gap:clamp(14px,2vw,22px)}
+  .ex.has-shot{grid-template-columns:minmax(0,240px) 1fr}
+  @media(max-width:700px){.ex.has-shot{grid-template-columns:1fr}}
+  .ex-shot{margin:0;border-radius:12px;overflow:hidden}
+  .ex-shot img{display:block;width:100%;height:auto}
+  .ex-body p{margin:0 0 10px;font-size:clamp(16px,1.6vw,18px);line-height:1.55;color:var(--ink);max-width:62ch}
+  .ex-body p:last-child{margin-bottom:0}
+  .ex-lines{grid-column:1/-1;background:var(--tone,var(--mint-soft));border-radius:calc(var(--r) - 6px);padding:12px 16px}
+  .ex-lines h5{margin:0 0 6px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.13em;
+               text-transform:uppercase;color:var(--deep,var(--mint-ink))}
+  .ex-lines ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:15.5px;color:var(--ink-2)}
 </style>
 </head>
 <body>
@@ -679,19 +707,19 @@
   <div class="chromerule"></div>
 
   <div id="guide">
-    <section class="hooksec">
+    <section class="hooksec big">
       <div class="sh"><span class="n">01</span><b>The first shot</b></div>
-      <p class="lede"><b>Dots all over your face, close to the camera.</b> Your face does the rest.</p>
+      <p class="lede"><b>Get your dotted face right up to the camera.</b> Start tapping with the dots still in frame.</p>
       <div class="hk">
         <figure class="hk-shot">
           <img src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/hook-dots.jpg" alt="Woman with small white dots on her cheek and forehead, tapping her cheek with two fingers, eyes wide">
           <span class="hk-over">trying spicy skincare 🌶</span>
         </figure>
         <div class="hk-body">
+          <p class="hk-say"><s>First line</s>"okay wait, that tingles?!"</p>
           <ul class="hk-rows">
           <li><s>Prop</s><p>Reedle Shot 100, dotted on your forehead, cheeks, nose and chin</p></li>
           <li><s>Action</s><p>Lean in close and start tapping</p></li>
-          <li><s>First line</s><p>"okay wait, that tingles?!"</p></li>
           </ul>
         <div class="hk-var"><h5>Pick your own on-screen text</h5><ul>
             <li>spicy skincare, day one</li>
@@ -703,7 +731,26 @@
     </section>
 
     <section>
-      <div class="sh"><span class="n">02</span><b>How the video goes</b></div>
+      <div class="sh"><span class="n">02</span><b>Watch this first</b></div>
+      <p class="lede"><b>Watch the first few seconds.</b> Dotted face right up to the camera, then the flinch. That's your opening.</p>
+      <div class="refs">
+        <a class="ref" href="https://www.tiktok.com/@songofskin/video/7423091095036497198" target="_blank" rel="noopener">
+          <video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-song.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-song.jpg" autoplay muted loop playsinline aria-label="Creator with white dots all over her cheek and nose, close to the camera"></video>
+          <div class="rb"><b>@songofskin</b><span>Eyes squeezed shut, dots everywhere</span><span class="metric">137K views</span></div>
+        </a>
+        <a class="ref" href="https://www.tiktok.com/@yejee.lee/video/7414884225414860074" target="_blank" rel="noopener">
+          <video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-yejee.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-yejee.jpg" autoplay muted loop playsinline aria-label="Creator with dots on her cheek, covering her mouth with her hand"></video>
+          <div class="rb"><b>@yejee.lee</b><span>Hand over her mouth, dots still on</span><span class="metric">207K views</span></div>
+        </a>
+        <a class="ref" href="https://www.tiktok.com/@clarahyee/video/7597256157270527287" target="_blank" rel="noopener">
+          <video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-clara.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-clara.jpg" autoplay muted loop playsinline aria-label="Creator holding the Reedle Shot bottle up to her cheek"></video>
+          <div class="rb"><b>@clarahyee</b><span>Taps, then holds up the bottle</span><span class="metric">66.9K views</span></div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh"><span class="n">03</span><b>How the video goes</b></div>
 
       <div class="lanes one">
         <article class="lane" data-id="a">
@@ -711,105 +758,73 @@
           <figure class="slot" style="margin:0">
             <img src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/concept-a.jpg" alt="Woman with white dots on her forehead and cheek, smiling into the camera"></figure>
           <div class="lbody">
-            <p><b>Dots on, start tapping.</b> You flinch for a sec, laugh it off, keep going.</p>
-            <span class="shape"><s>Example</s><q>"aah! okay wait"</q></span>
+            <p><b>Dots on, start tapping.</b> Whatever your face does, keep rolling.</p>
           </div>
         </article>
       </div>
     </section>
 
     <section>
-      <div class="sh"><span class="n">03</span><b>Shot by shot</b></div>
+      <div class="sh"><span class="n">04</span><b>Shot by shot</b></div>
 
       <div class="concept" data-id="a">
       <div class="step">
         <div class="sthead"><span class="sn"><s>Step</s>1</span><h3>Dots all over your face</h3></div>
-        <div class="warn">These are just ideas. Use your own words.</div>
         <div class="cols wp">
           <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-dot.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-dot.jpg" autoplay muted loop playsinline aria-label="Woman with white dots on her forehead and cheeks, tapping one cheek close to the camera"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
             <li>Clean skin. <b>Dot Reedle Shot</b> on your forehead, cheeks, nose and chin.</li>
             <li>Get close so every dot shows.</li>
           </ul></div>
-          <div class="col talk"><h5>Say something like</h5><ul>
-            <li>"spicy skincare time"</li>
-            <li>"dots everywhere lol"</li>
-          </ul></div>
         </div>
       </div>
 
       <div class="step">
-        <div class="sthead"><span class="sn"><s>Step</s>2</span><h3>Tap it in and flinch</h3></div>
-        <div class="warn">These are just ideas. Use your own words.</div>
+        <div class="sthead"><span class="sn"><s>Step</s>2</span><h3>Tap it in and react</h3></div>
         <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-flinch.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-flinch.jpg" autoplay muted loop playsinline aria-label="Woman with dots on her forehead squeezing her eyes shut as she taps near her temple"></video></figure></div>
+          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-flinch.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-flinch.jpg" autoplay muted loop playsinline aria-label="Woman with dots on her face, eyes squeezed shut, fingers tapping near her mouth"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
-            <li>Tap with <b>both hands</b>, all over.</li>
-            <li>Squeeze your eyes shut and <b>let it out</b>. Scream or tear up if that's what really happens.</li>
-          </ul></div>
-          <div class="col talk"><h5>Say something like</h5><ul>
-            <li>"aah!"<span>One beat, then laugh</span></li>
+            <li>Keep tapping and <b>let it out</b>. Yelp, tear up, whatever comes.</li>
           </ul></div>
         </div>
       </div>
 
       <div class="step">
-        <div class="sthead"><span class="sn"><s>Step</s>3</span><h3>Laugh and keep tapping</h3></div>
-        <div class="warn">These are just ideas. Use your own words.</div>
+        <div class="sthead"><span class="sn"><s>Step</s>3</span><h3>Keep tapping</h3></div>
         <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-wait.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-wait.jpg" autoplay muted loop playsinline aria-label="Woman facing the camera, tapping both cheeks with her index fingers"></video></figure></div>
+          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-wait.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-wait.jpg" autoplay muted loop playsinline aria-label="Woman with dots on her face, tapping both cheeks with her fingers"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
-            <li>Open your eyes, laugh, <b>don't stop tapping</b>.</li>
-            <li>Get close on one cheek. Zoom in or drop in a close-up.</li>
-            <li>Say the name once.</li>
-          </ul></div>
-          <div class="col talk"><h5>Say something like</h5><ul>
-            <li>"ok ok i'm good lol"</li>
-            <li>"this is reedle shot btw. everyone warned me lol"</li>
+            <li>Both hands on your cheeks, fingers still going.</li>
+            <li>Drop the name <b>Reedle Shot</b> somewhere in here.</li>
           </ul></div>
         </div>
       </div>
 
       <div class="step">
-        <div class="sthead"><span class="sn"><s>Step</s>4</span><h3>The satisfying part</h3></div>
-        <div class="warn">These are just ideas. Use your own words.</div>
-        <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-pat.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-pat.jpg" autoplay muted loop playsinline aria-label="Woman patting her cheek with her fingertips"></video></figure></div>
-          <div class="col dir"><h5>Directions</h5><ul>
-            <li>Slow down. <b>Pat</b>, don't rub.</li>
-          </ul></div>
-          <div class="col talk"><h5>Say something like</h5><ul>
-            <li>"tap tap tap. kinda satisfying ngl"</li>
-            <li>"why do i like this"</li>
-          </ul></div>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="sthead"><span class="sn"><s>Step</s>5</span><h3>Press it in, end on your skin</h3></div>
-        <div class="warn">These are just ideas. Use your own words.</div>
+        <div class="sthead"><span class="sn"><s>Step</s>4</span><h3>Press it in</h3></div>
         <div class="cols wp">
           <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-press.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-press.jpg" autoplay muted loop playsinline aria-label="Woman pressing both palms on her cheeks"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
-            <li>Palms flat on your cheeks. <b>Press and let go.</b></li>
-            <li>Last frame is <b>your face up close</b>, not the bottle.</li>
-          </ul></div>
-          <div class="col talk"><h5>Say something like</h5><ul>
-            <li>"no rubbing. just press"</li>
+            <li>Palms flat, <b>press and let go</b>. End on your face, not the bottle.</li>
           </ul></div>
         </div>
       </div>
       </div>
     </section>
 
-    <section>
-      <div class="sh"><span class="n">04</span><b>Watch this first</b></div>
-      <p class="lede"><b>Watch her first second.</b> Dotted face right up to the camera. That's your opening.</p>
-      <div class="refs">
-        <a class="ref" href="https://www.tiktok.com/@clarahyee/video/7597256157270527287" target="_blank" rel="noopener">
-          <video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-clara.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-clara.jpg" autoplay muted loop playsinline aria-label="Creator holding the Reedle Shot bottle up to her cheek"></video>
-          <div class="rb"><b>@clarahyee</b><span>Dotted face, tapping, then the bottle</span><span class="metric">66.9K views</span></div>
-        </a>
+    <section class="explain">
+      <div class="sh"><span class="n">05</span><b>Why it tingles</b></div>
+      <div class="ex">
+        <div class="ex-body">
+          <p>Reedle Shot has tiny needle-like bits in it, way too small to see.</p>
+          <p>Tapping pushes them into the very top layer of your skin. That's the tingle. It calms down after a bit.</p>
+          <p>And your moisturizer seems to go on nicer after.</p>
+        </div>
+        <div class="ex-lines"><h5>Say it your way, or skip it</h5><ul>
+            <li>"there's tiny little needle bits in it. that's the tingle"</li>
+            <li>"kinda prickly for a sec, then it calms down"</li>
+            <li>"my moisturizer goes on so nice after this"</li>
+          </ul></div>
       </div>
     </section>
   </div>
@@ -823,7 +838,7 @@
           <li>Use it on <b>clean, dry skin</b></li>
           <li>Let the reaction be <b>yours</b>. Small is fine</li>
           <li><b>Tap and press</b> the whole time</li>
-          <li>Say it's for <b>night</b>, and mention sunscreen the next day</li>
+          <li>Say it's a <b>night</b> thing, and sunscreen goes on the next morning</li>
           <li>Reply to comments for the first 48 hours</li>
         </ul>
       </div>
@@ -845,7 +860,7 @@
       <h4>Must-haves</h4>
       <ul class="check">
           <li><b>Dots on your whole face</b> in the first shot ⭐</li>
-          <li><b>One real flinch</b>, then a laugh ⭐</li>
+          <li><b>Your first real reaction</b>, whatever it is ⭐</li>
           <li>Tap and press. <b>Never rub</b></li>
           <li>Say <b>Reedle Shot</b> once</li>
       </ul>

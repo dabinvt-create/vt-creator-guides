@@ -744,8 +744,19 @@
   .ddbox.no.is-strong h5{color:var(--red-ink)}
 
   /* steps.*.say_exact: 원문 그대로 말할 대사를 스텝 안에 크게 (2026-10-13 pdrn-eyecream-hook) */
-  .step .hk-say.st-exact{margin:4px clamp(18px,2.2vw,24px) 10px;font-size:clamp(22px,3vw,34px)}
+  .step .hk-say.st-exact{margin:4px clamp(18px,2.2vw,24px) 10px;font-size:clamp(20px,2.3vw,26px);line-height:1.2}
   .step.is-exact{border:2px solid var(--deep,var(--mint-ink))}
+
+  /* concepts[].ref: 콘셉트 카드 사진 자리에 레퍼런스 영상, 눌러서 원본 (2026-10-13 pdrn-eyecream-hook) */
+  .slot.slot-ref a{display:block;width:100%;height:100%;color:inherit;text-decoration:none}
+  .slot.slot-ref a:focus-visible{outline:2px solid var(--mint-ink);outline-offset:-2px}
+  .slot.slot-ref video,.slot.slot-ref img{width:100%;height:100%;object-fit:cover;display:block}
+  .slot.slot-ref .refbar{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;
+        justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;
+        background:linear-gradient(transparent,rgba(0,0,0,.72));color:#FFFFFF;
+        font-family:var(--display);font-size:13px;line-height:1.2}
+  .slot.slot-ref .refbar b{font-weight:700}
+  .slot.slot-ref .refbar span{font-weight:700;color:var(--mint,#BFF0E6)}
   :root{--tone:#E8F4EF;--tone-2:#D4EBE2;--deep:#1F6F62;--deep-2:#3E9585;--mint:#8CCBBA;--mint-ink:#1F6F62;--mint-soft:#DDF0E9;--mint-line:#B5DDD0;--False:#F3FAF7;--line:#D5E7E0;--sc-bg:#DDF0E9;}
 .hero::after{background:linear-gradient(90deg,rgba(232,244,239,0) 30%,rgba(232,244,239,.86) 50%,var(--tone) 62%)}
 /* 폰: 제품 사진 위, 제목 아래로 분리 (review_1 폰 위아래 분리) */
@@ -778,10 +789,10 @@
       <div class="lanes one">
         <article class="lane" data-id="a">
           <div class="lhead">Name it, then PDRN</div>
-          <figure class="slot" style="margin:0"><span class="cap">Reference</span>
-            <video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-hook/img/concept-a.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-hook/img/concept-a.jpg" autoplay muted loop playsinline aria-label="She talks to the camera with her hand up. &quot;it&#x27;s not dark circles&quot; on screen"></video></figure>
+          <figure class="slot slot-ref" style="margin:0"><span class="cap">Reference</span>
+            <a href="https://www.tiktok.com/@leeskincare7/video/7682494683645267218" target="_blank" rel="noopener"><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-hook/img/ref-leeskincare7.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-hook/img/ref-leeskincare7.jpg" autoplay muted loop playsinline aria-label="She talks to the camera, &quot;it&#x27;s not dark circles&quot; on screen"></video><span class="refbar"><b>@leeskincare7</b><span>3.1M views</span></span></a></figure>
           <div class="lbody">
-            <p>Open with the hook line, word for word, finger under your eye. The tube comes after.</p>
+            <p>She points under her eye, says it's not dark circles, then names it. Do the same with the Step 1 line, word for word. The tube comes after.</p>
             <span class="shape"><s>Example</s><q>"it's not dark circles"</q></span>
           </div>
         </article>
@@ -794,7 +805,7 @@
       <div class="concept" data-id="a">
       <div class="step is-exact">
         <div class="sthead"><span class="sn"><s>Step</s>1</span><h3>Hook: call it hollowness</h3></div>
-        <p class="hk-say st-exact"><s>Say this word for word</s>"If your under eye looks dark and you also have a line like this, it's not dark circles. This is called under eye hollowness. This is volume loss from lack of collagen. So brightening eye creams won't fix this."</p>
+        <p class="hk-say st-exact"><s>Say this word for word</s>"It's not dark circles. It's under-eye hollowness."</p>
         <div class="cols wp">
           <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-hook/img/hook-point.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-hook/img/hook-point.jpg" autoplay muted loop playsinline aria-label="Bare-faced woman pressing her index finger into the dip under her eye, talking to the camera"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
@@ -853,17 +864,6 @@
           </ul></div>
         </div>
       </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="sh"><span class="n">03</span><b>Watch this first</b></div>
-      <p class="lede">Watch the first few seconds. She points under her eye, says it's not dark circles, then names it.</p>
-      <div class="refs">
-        <a class="ref" href="https://www.tiktok.com/@leeskincare7/video/7682494683645267218" target="_blank" rel="noopener">
-          <video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-hook/img/ref-leeskincare7.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-hook/img/ref-leeskincare7.jpg" autoplay muted loop playsinline aria-label="She talks to the camera, &quot;it&#x27;s not dark circles&quot; on screen"></video>
-          <div class="rb"><b>@leeskincare7</b><span>Points under her eye, then names it</span><span class="metric">3.1M views</span></div>
-        </a>
       </div>
     </section>
   </div>

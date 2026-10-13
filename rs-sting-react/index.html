@@ -698,7 +698,33 @@
   .fl-step{background:var(--white);border-radius:var(--r);padding:clamp(14px,1.8vw,20px);box-shadow:0 2px 16px rgba(0,0,0,.06);
            display:flex;flex-direction:column;gap:12px}
   .fl-step:first-child{border:2px solid var(--deep,var(--mint-ink))}
-  .fl-step.is-must{border:2px solid var(--deep,var(--mint-ink))}
+  .fl-step.is-must{border:4px solid var(--deep,var(--mint-ink));position:relative;margin-top:14px;
+                   background:#fff;box-shadow:0 8px 26px rgba(0,0,0,.14)}
+  .flow.fl-2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:820px;margin-inline:auto}
+  @media(max-width:760px){.flow.fl-2{grid-template-columns:1fr}}
+  /* MUST 배지: flow.steps[].must 일 때만 (2026-10-13 rs-sting-react 요청자 "필수 강조 안 된 것 같다") */
+  .fl-must{position:absolute;top:-18px;left:50%;transform:translateX(-50%);padding:7px 24px;border-radius:999px;
+           background:var(--deep,var(--mint-ink));color:#fff;font-family:var(--display);font-weight:800;font-size:16px;
+           letter-spacing:.18em;line-height:1.2;white-space:nowrap}
+  .fl-step.is-must .fl-head{background:var(--deep,var(--mint-ink));border-radius:10px;padding:10px 12px;margin-top:6px}
+  .fl-step.is-must .fl-head h3{color:#fff}
+  .fl-step.is-must .fl-n{background:#fff;color:var(--deep,var(--mint-ink))}
+  /* flow.options: 훅 다음 영상 구성 예시 (2026-10-13 rs-sting-react) */
+  .fl-opts-wrap{margin:clamp(18px,2.4vw,28px) auto 0;max-width:820px}
+  .fl-opts-wrap h4{margin:0 0 4px;font-family:var(--display);font-weight:800;font-size:clamp(19px,2vw,24px);color:var(--ink);text-align:center}
+  .fl-opts-wrap>p{margin:0 0 12px;text-align:center;color:var(--ink-2);font-size:clamp(15px,1.5vw,16.5px)}
+  .fl-opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.8vw,22px)}
+  @media(max-width:760px){.fl-opts{grid-template-columns:1fr}}
+  .fl-opt{background:var(--white);border:1.5px dashed var(--deep,var(--mint-ink));border-radius:var(--r);padding:14px 18px}
+  .fl-opt b{display:inline-block;font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+            color:var(--deep,var(--mint-ink));margin-bottom:6px}
+  .fl-opt ol{margin:0;padding-left:20px;display:grid;gap:3px;font-size:clamp(15px,1.5vw,16.5px);line-height:1.45;color:var(--ink)}
+  /* showcase.why: 제품 칸 위 작은 원리 상자 (2026-10-13 rs-sting-react) */
+  .sc-why{max-width:760px;margin:0 auto clamp(14px,2vw,22px);background:var(--white);border-radius:var(--r);padding:14px 20px}
+  .sc-why h4{margin:0 0 6px;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+             color:var(--deep,var(--mint-ink))}
+  .sc-why p{margin:0 0 4px;font-size:clamp(15px,1.5vw,16.5px);line-height:1.5;color:var(--ink-2)}
+  .sc-why p:last-child{margin-bottom:0}
   .fl-head{display:flex;align-items:center;gap:10px}
   .fl-n{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);
         font-weight:800;font-size:14px;color:#fff;background:var(--deep,var(--mint-ink))}
@@ -735,47 +761,54 @@
     <section class="flowsec">
       <div class="sh"><span class="n">01</span><b>The must-have hook</b></div>
       <p class="fl-rule">Open with these two. After that, it's all yours.</p>
-      <ol class="flow">
-        <li class="fl-step">
+      <ol class="flow fl-2">
+        <li class="fl-step is-must"><span class="fl-must">MUST</span>
           <div class="fl-head"><span class="fl-n">1</span><h3>The ouch moment</h3></div>
-          <figure class="fl-shot"><img src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-flinch.jpg" alt="Woman with white dots on her face, eyes squeezed shut and fingers at her mouth, mid sting"></figure>
+          <figure class="fl-shot"><img src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/step-flinch.jpg" alt="Woman with white dots on her face, eyes squeezed shut and a hand pressed to her forehead, mid sting"></figure>
           <div class="fl-body">
-            <p class="fl-text"><b>Get close to the camera with the dots still on.</b> Tap it in and let us see it sting. Say "ouch" if it does.</p>
+            <p class="fl-text"><b>Bring the camera close and tap over the dots.</b> Let the sting show on your face.</p>
+            <p>Squeeze your eyes shut. Scrunch up your whole face</p>
+            <p>A short little scream is fine. Teary eyes too</p>
+            <p>Say "ouch!" or "it stings!" out loud</p>
           </div>
         </li>
-        <li class="fl-step is-must">
+        <li class="fl-step is-must"><span class="fl-must">MUST</span>
           <div class="fl-head"><span class="fl-n">2</span><h3>Your before photo</h3></div>
           <figure class="fl-shot"><img src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/flow-before.jpg" alt="Woman with dots on her face, with a small photo of her bare skin from earlier in the bottom corner"></figure>
           <div class="fl-body">
             <p class="fl-text">Put a small before pic of your bare face in the corner.</p>
           </div>
         </li>
-        <li class="fl-step no-shot">
-          <div class="fl-head"><span class="fl-n">3</span><h3>Then: why it tingles</h3></div>
-          <div class="fl-body">
-            <p>Reedle Shot has tiny needle-like bits in it, way too small to see.</p>
-            <p>Tapping pushes them into the very top layer of your skin. That's the tingle. It calms down after a bit.</p>
-            <p>And your moisturizer seems to go on nicer after.</p>
-          </div>
-        </li>
       </ol>
+      <div class="fl-opts-wrap"><h4>Not sure what comes next?</h4><p>After those two, pick one. Or do your own thing.</p>
+        <div class="fl-opts">
+          <div class="fl-opt"><b>Option A</b>
+            <ol>
+              <li>Keep tapping. Keep reacting</li>
+              <li>End with the bottle in your hand</li>
+            </ol>
+          </div>
+          <div class="fl-opt"><b>Option B</b>
+            <ol>
+              <li>Say why it tingles, one line</li>
+              <li>Close-up of your face while it sinks in</li>
+            </ol>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section>
       <div class="sh"><span class="n">02</span><b>Watch this first</b></div>
-      <p class="lede"><b>Watch how they open.</b> Two use a different Reedle Shot. It's the reaction you're copying.</p>
+      <p class="lede"><b>Watch how they open.</b> Neither one is Reedle Shot 100. Copy the reaction.</p>
       <div class="refs">
         <a class="ref" href="https://www.tiktok.com/@songofskin/video/7423091095036497198" target="_blank" rel="noopener">
-          <video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-song.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-song.jpg" autoplay muted loop playsinline aria-label="Creator with white dots all over her cheek and nose, close to the camera"></video>
-          <div class="rb"><b>@songofskin</b><span>Eyes squeezed shut, dots everywhere</span><span class="metric">137K views</span></div>
+          <video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-song.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-song.jpg" autoplay muted loop playsinline aria-label="Creator with white dots on her face, eyes squeezed shut and a hand on her forehead"></video>
+          <div class="rb"><b>@songofskin</b><span>Eyes shut tight, hand on her forehead</span><span class="metric">137K views</span></div>
         </a>
         <a class="ref" href="https://www.tiktok.com/@yejee.lee/video/7414884225414860074" target="_blank" rel="noopener">
-          <video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-yejee.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-yejee.jpg" autoplay muted loop playsinline aria-label="Creator with dots on her cheek, covering her mouth with her hand"></video>
-          <div class="rb"><b>@yejee.lee</b><span>Hand over her mouth, dots still on</span><span class="metric">207K views</span></div>
-        </a>
-        <a class="ref" href="https://www.tiktok.com/@clarahyee/video/7597256157270527287" target="_blank" rel="noopener">
-          <video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-clara.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-clara.jpg" autoplay muted loop playsinline aria-label="Creator holding the Reedle Shot bottle up to her cheek"></video>
-          <div class="rb"><b>@clarahyee</b><span>Taps, then holds up the bottle</span><span class="metric">66.9K views</span></div>
+          <video src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-yejee.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/ref-yejee.jpg" autoplay muted loop playsinline aria-label="Creator with dots on her cheek, both hands over her mouth"></video>
+          <div class="rb"><b>@yejee.lee</b><span>Hands over her mouth, dots still on</span><span class="metric">207K views</span></div>
         </a>
       </div>
     </section>
@@ -798,7 +831,7 @@
         <ul>
           <li><b>Don't read the product copy</b> out loud</li>
           <li><b>Skip the unboxing.</b> Start with your dotted face</li>
-          <li>No <b>Botox, injection or penetrate</b> talk. TikTok can flag it</li>
+          <li>Don't mention <b>Botox or injections</b>, or say <b>penetrate</b>. TikTok can flag those words</li>
           <li>Don't say the tingle means it's working</li>
           <li><b>No after shot.</b> The before photo stays small</li>
         </ul>
@@ -834,6 +867,11 @@
 
   <section>
     <div class="sh"><b>The product</b></div>
+    <div class="sc-why"><h4>Why it tingles</h4>
+        <p>Reedle Shot has tiny needle-like bits in it, way too small to see.</p>
+        <p>Tapping pushes them into the very top layer of your skin. That's the tingle. It calms down after a bit.</p>
+        <p>And your moisturizer seems to go on nicer after.</p>
+    </div>
     <div class="showcase">
       <figure class="sc-shot"><img src="https://dabinvt-create.github.io/vt-creator-guides/rs-sting-react/img/product-bottle.jpg" alt="VT CICA Reedle Shot 100, a silver bottle next to a swipe of the white serum"></figure>
       <div class="sc-body">

@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>REAL EYES, REAL TIME</title>
+<title>IT&#x27;S NOT DARK CIRCLES</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700&family=Bowlby+One&family=Gilda+Display&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700&display=swap">
 <style>
 
   /* 기본 테마: 리들샷 민트. 제품 yaml theme 으로 덮어쓴다 */
@@ -764,33 +764,6 @@
   .hero .heroshot img{object-fit:contain;object-position:50% 50%}.hero::after{display:none}.hero>div{padding-top:8px}}
 
 
-  /* fonts: rich (2026-10-13 2차). spec 에 fonts: rich 가 있을 때만 붙는다. 히어로(header.poster)만 바꾼다.
-     메디큐브 히어로처럼 포스터 한 장: 폭을 꽉 채우는 Bowlby One 대문자 슬로건 + 얇은 세리프(Gilda Display)
-     대문자 넓은 자간 부제 + 제품색 세로 그라데이션 + 비스듬히 겹친 누끼(알파 PNG, 아래로 잘림) + 아래 가운데 작은 로고.
-     둘 다 구글 폰트이고 캔바에도 있다. 줄마다 글자 크기(--fs, 컨테이너 폭 %)는 guide.py 가 글자 폭으로 계산 */
-  .poster{position:relative;isolation:isolate;container-type:inline-size;overflow:hidden;text-align:center;
-          margin-inline:calc(-1 * clamp(16px,3.5vw,40px));margin-bottom:clamp(22px,3vw,34px);
-          padding:clamp(22px,3.6cqw,46px) 0 0;
-          background:linear-gradient(180deg,#F7FCFA 0%,#CBE9DF 14%,#9FD3C3 34%,var(--mint) 60%,#6FB5A1 100%)}
-  .poster .pz-h{margin:0;padding:0 4cqw;font-family:"Bowlby One",var(--display);font-weight:400;
-                color:var(--deep);text-transform:uppercase;font-style:normal;letter-spacing:0;line-height:.98;
-                text-shadow:0 3px 7px rgba(14,60,52,.2)}
-  .poster .pz-h span{display:block;white-space:nowrap;
-                     font-size:calc(min(100vw,1080px) * var(--fs) / 100);font-size:calc(var(--fs) * 1cqw)}
-  .poster .pz-h span+span{margin-top:.08em}
-  /* 메디큐브 글자처럼 키가 크게: 세로만 12% 늘린다. 늘어난 만큼 위 여백 */
-  .poster .pz-h span{transform:scaleY(1.12);transform-origin:50% 100%;padding-top:.1em}
-  .poster .pz-sub{margin:clamp(10px,1.8cqw,22px) auto 0;padding:0 5cqw;max-width:none;
-                  font-family:"Gilda Display",Georgia,serif;font-weight:400;text-transform:uppercase;
-                  font-size:clamp(14px,2.5cqw,27px);letter-spacing:.12em;line-height:1.3;color:#FFFFFF;
-                  text-shadow:0 1px 2px rgba(20,90,78,.55),0 0 14px rgba(20,90,78,.25)}
-  /* hero.sub_strong: true 일 때만. 밝은 그라데이션 위 흰 부제 대비 보강 (2026-10-14 pdrn-eyecream-preview) */
-  .poster .pz-sub.strong{color:var(--deep);font-weight:400;text-shadow:0 1px 0 rgba(255,255,255,.5)}
-  .poster .pz-stage{margin:clamp(4px,1cqw,12px) auto 0;padding:0;width:min(100%,980px)}
-  .poster .pz-stage img{display:block;width:100%;height:auto}
-  .poster .pz-foot{position:absolute;left:0;right:0;bottom:clamp(12px,2.2cqw,26px)}
-  .poster .pz-foot img{display:inline-block;height:clamp(18px,2.2cqw,24px);width:auto;opacity:.9}
-
   .lanes.four{grid-template-columns:repeat(4,minmax(0,1fr))}
   @media(max-width:1100px){.lanes.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media(max-width:560px){.lanes.four{grid-template-columns:1fr}}
@@ -810,13 +783,16 @@
 <body>
 <div class="page">
 
-  <header class="poster">
-    <h1 class="pz-h"><span style="--fs:15.567">REAL EYES</span><span style="--fs:15.567">REAL TIME</span></h1>
-    <p class="pz-sub strong">Pick one of four ways to film it.</p>
-    <figure class="pz-stage"><img src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-preview/img/hero-poster.png" alt="VT PDRN Reedle Shot Firming Eye Cream, a mint-green tube with a silver vibrating tip, next to a cream swatch"></figure>
-    <div class="pz-foot">
-      <img src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-preview/img/logo-black.png" alt="VT Cosmetics">
+  <header class="hero">
+    <div>
+      <div class="brandmark"><img src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-preview/img/logo-black.png" alt="VT Cosmetics"></div>
+      <p class="kicker">PDRN Reedle Shot Firming Eye Cream<span class="sep"></span>Creator Brief</p>
+      <h1 class="slogan">IT'S NOT DARK CIRCLES<br><i>IT'S UNDER-EYE HOLLOWNESS</i></h1>
+      <p class="sub">Point under your eye. Then call it what it is.</p>
     </div>
+    <figure class="heroshot">
+      <img src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-preview/img/hero-tube.jpg" alt="VT PDRN Reedle Shot Firming Eye Cream, a mint-green tube with a silver vibrating tip, next to a cream swatch">
+    </figure>
   </header>
 
   <div class="chromerule"></div>

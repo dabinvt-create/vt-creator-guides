@@ -777,6 +777,14 @@
             background:var(--deep,var(--mint-ink));color:#fff;text-align:center;font-family:var(--display);font-weight:800;
             font-size:clamp(20px,2.6vw,30px);line-height:1.3}
   .msg-line b,.msg-line strong{color:#fff}
+  /* message.position: after_product 가로 띠 (2026-10-15 곽유리) */
+  .msg-band{display:flex;align-items:center;gap:clamp(14px,2.4vw,32px);padding:clamp(18px,2.4vw,26px) clamp(20px,3vw,40px);
+            border-radius:var(--r);background:var(--deep,var(--mint-ink));color:#fff}
+  .msg-band .msg-k{flex:none;font-family:var(--display);font-weight:800;font-size:clamp(13px,1.3vw,15px);letter-spacing:.16em;
+            text-transform:uppercase;padding:8px 16px;border-radius:999px;background:#fff;color:var(--deep,var(--mint-ink))}
+  .msg-band p{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(19px,2.2vw,27px);line-height:1.3;color:#fff}
+  .msg-band p b,.msg-band p strong{color:#fff}
+  @media(max-width:760px){.msg-band{flex-direction:column;align-items:flex-start;gap:12px}}
   :root{--tone:#E8F4EF;--tone-2:#D4EBE2;--deep:#1F6F62;--deep-2:#3E9585;--mint:#8CCBBA;--mint-ink:#1F6F62;--mint-soft:#DDF0E9;--mint-line:#B5DDD0;--False:#F3FAF7;--line:#D5E7E0;--sc-bg:#DDF0E9;}
 .hero::after{background:linear-gradient(90deg,rgba(232,244,239,0) 30%,rgba(232,244,239,.86) 50%,var(--tone) 62%)}
 /* 폰: 제품 사진 위, 제목 아래로 분리 (review_1 폰 위아래 분리) */
@@ -822,6 +830,10 @@
         <a class="sc-shop" href="https://shop.tiktok.com/us/pdp/1732289055389553029" target="_blank" rel="noopener">Get it on TikTok Shop</a>
       </div>
     </div>
+  </section>
+
+  <section class="msgsec msg-band-sec">
+    <div class="msg-band"><span class="msg-k">The message</span><p>The <b>vibrating tip</b> and <b>CICA REEDLE</b> help <b>PDRN</b> and the other actives <b>sink in</b>.</p></div>
   </section>
 
   <div id="guide">
@@ -993,11 +1005,6 @@
       <h5>Hashtags</h5>
       <p class="keyw">#eyecream #undereye #koreanskincare #skintok #pdrn #vtcosmetics</p>
     </div>
-  </section>
-
-  <section class="msgsec">
-    <div class="sh"><b>The message</b></div>
-    <p class="msg-line">The <b>vibrating tip</b> and <b>CICA REEDLE</b> help <b>PDRN</b> and the other actives <b>sink in</b>.</p>
   </section>
 
   <footer>

@@ -702,6 +702,21 @@
                    background:#fff;box-shadow:0 8px 26px rgba(0,0,0,.14)}
   .flow.fl-2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:820px;margin-inline:auto}
   @media(max-width:760px){.flow.fl-2{grid-template-columns:1fr}}
+  /* 훅 카드 1장: 가운데, 데스크톱은 사진 왼쪽 글 오른쪽 (2026-10-15 rspot-squeeze 요청자 정민희 "가운데 정렬 해서 예쁘게") */
+  .flow.fl-1{grid-template-columns:1fr;max-width:760px;margin-inline:auto}
+  .flow.fl-1 .fl-step{display:grid;grid-template-columns:minmax(0,300px) 1fr;grid-template-areas:"shot head" "shot body";
+                      grid-template-rows:auto 1fr;column-gap:clamp(18px,2.6vw,32px);row-gap:16px;align-items:start;
+                      padding:clamp(22px,2.8vw,32px)}
+  .flow.fl-1 .fl-head{grid-area:head;margin-top:10px}
+  .flow.fl-1 .fl-shot{grid-area:shot}
+  .flow.fl-1 .fl-body{grid-area:body;align-self:center}
+  .flow.fl-1 .fl-n{display:none}
+  .flow.fl-1 .fl-head h3{font-size:clamp(20px,2.2vw,26px)}
+  .flow.fl-1 .fl-body p{font-size:clamp(16.5px,1.7vw,19px)}
+  .flow.fl-1 .fl-body p:not(.fl-text){margin-top:14px;padding:14px 18px;border-radius:12px;background:var(--tone,var(--mint-soft));
+                      font-family:var(--display);font-weight:800;line-height:1.35}
+  .flow.fl-1 .fl-step.no-shot{grid-template-columns:1fr;grid-template-areas:"head" "body"}
+  @media(max-width:760px){.flow.fl-1 .fl-step{grid-template-columns:1fr;grid-template-areas:"head" "shot" "body"}}
   /* MUST 배지: flow.steps[].must 일 때만 (2026-10-13 rs-sting-react 요청자 "필수 강조 안 된 것 같다") */
   .fl-must{position:absolute;top:-18px;left:50%;transform:translateX(-50%);padding:7px 24px;border-radius:999px;
            background:var(--deep,var(--mint-ink));color:#fff;font-family:var(--display);font-weight:800;font-size:16px;
@@ -851,7 +866,6 @@
           <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-hook/img/step-name.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-hook/img/step-name.jpg" autoplay muted loop playsinline aria-label="Bare-faced woman with her hand up, explaining her under eyes to the camera"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
             <li><b>Explain why it happens</b> in <b>one sentence</b>.</li>
-            <li>Say why you picked it, then say <b>PDRN</b>.</li>
             <li>Explain the <b>benefits and functions of PDRN</b>.</li>
             <li>Say why <b>PDRN is the answer</b>.</li>
             <li>Explain how <b>Cica Reedle</b> works and what it does.</li>

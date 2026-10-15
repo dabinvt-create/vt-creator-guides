@@ -787,6 +787,9 @@
   @media(max-width:760px){.msg-band{flex-direction:column;align-items:flex-start;gap:12px}}
   /* message.size: body 면 띠 문장을 제품 불릿과 같은 15px (2026-10-15 곽유리 "그 세줄과 같은 크기로") */
   .msg-band.msg-body p{font-family:inherit;font-weight:500;font-size:15px;line-height:1.5}
+  /* msg-body 띠 더 얇게, 라벨 흰 알약 없이 하늘색 글씨 (2026-10-15 곽유리) */
+  .msg-band.msg-body{padding:12px clamp(16px,2.4vw,28px);gap:clamp(10px,1.8vw,20px)}
+  .msg-band.msg-body .msg-k{padding:0;background:none;color:#9FDCF2;font-size:13px}
   :root{--tone:#E8F4EF;--tone-2:#D4EBE2;--deep:#1F6F62;--deep-2:#3E9585;--mint:#8CCBBA;--mint-ink:#1F6F62;--mint-soft:#DDF0E9;--mint-line:#B5DDD0;--False:#F3FAF7;--line:#D5E7E0;--sc-bg:#DDF0E9;}
 .hero::after{background:linear-gradient(90deg,rgba(232,244,239,0) 30%,rgba(232,244,239,.86) 50%,var(--tone) 62%)}
 /* 폰: 제품 사진 위, 제목 아래로 분리 (review_1 폰 위아래 분리) */

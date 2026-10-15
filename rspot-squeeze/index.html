@@ -772,6 +772,26 @@
         font-family:var(--display);font-size:13px;line-height:1.2}
   .slot.slot-ref .refbar b{font-weight:700}
   .slot.slot-ref .refbar span{font-weight:700;color:var(--mint,#BFF0E6)}
+  /* message: 맨 아래 한 줄 메시지 (2026-10-15 pdrn-eyecream-hook 요청자 곽유리) */
+  .msg-line{margin:0 auto;max-width:820px;padding:clamp(20px,3vw,32px) clamp(18px,3vw,36px);border-radius:var(--r);
+            background:var(--deep,var(--mint-ink));color:#fff;text-align:center;font-family:var(--display);font-weight:800;
+            font-size:clamp(20px,2.6vw,30px);line-height:1.3}
+  .msg-line b,.msg-line strong{color:#fff}
+  /* message.position: after_product 가로 띠 (2026-10-15 곽유리) */
+  .msg-band{display:flex;align-items:center;gap:clamp(14px,2.4vw,32px);padding:clamp(18px,2.4vw,26px) clamp(20px,3vw,40px);
+            border-radius:var(--r);background:var(--deep,var(--mint-ink));color:#fff}
+  .msg-band .msg-k{flex:none;font-family:var(--display);font-weight:800;font-size:clamp(13px,1.3vw,15px);letter-spacing:.16em;
+            text-transform:uppercase;padding:8px 16px;border-radius:999px;background:#fff;color:var(--deep,var(--mint-ink))}
+  .msg-band p{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(19px,2.2vw,27px);line-height:1.3;color:#fff}
+  .msg-band p b,.msg-band p strong{color:#fff}
+  @media(max-width:760px){.msg-band{flex-direction:column;align-items:flex-start;gap:12px}}
+  /* message.size: body 면 띠 문장을 제품 불릿과 같은 15px (2026-10-15 곽유리 "그 세줄과 같은 크기로") */
+  .msg-band.msg-body p{font-family:inherit;font-weight:500;font-size:15px;line-height:1.5}
+  /* msg-body 띠 더 얇게, 라벨 흰 알약 없이 하늘색 글씨 (2026-10-15 곽유리) */
+  .msg-band.msg-body{padding:12px clamp(16px,2.4vw,28px);gap:clamp(10px,1.8vw,20px)}
+  .msg-band.msg-body .msg-k{padding:0;background:none;color:#9FDCF2;font-size:13px}
+  /* showcase.points_lead: 불릿 위 한 줄 (2026-10-15 곽유리 "Wild-ginseng PDRN + Cica Reedle for a transformed under eye:") */
+  .sc-lead{margin:0 0 10px;font-family:var(--display);font-weight:800;font-size:clamp(12px,1.12vw,14px);letter-spacing:-.01em;line-height:1.35;color:var(--ink)}
   :root{--tone:#FBF9E1;--tone-2:#F3F2C6;--deep:#4A2C83;--deep-2:#6B47B3;--mint:#C9D91E;--mint-ink:#4A2C83;--mint-soft:#F2F5C4;--mint-line:#DCE36F;--False:#FAFAEC;--line:#E6E6C8;--sc-bg:#FCFBC8;}
 .hero::after{background:linear-gradient(90deg,rgba(251,249,225,0) 30%,rgba(251,249,225,.86) 50%,var(--tone) 62%)}
 @media(max-width:860px){.hero::after{background:linear-gradient(180deg,rgba(251,249,225,0) 34%,rgba(251,249,225,.86) 62%,var(--tone) 92%)}}
@@ -820,27 +840,20 @@
   </section>
 
   <div id="guide">
-    <section class="flowsec">
-      <div class="sh"><span class="n">01</span><b>The hook</b></div>
-      <p class="fl-rule">Open with this. Then follow the steps below.</p>
-      <ol class="flow fl-1">
-        <li class="fl-step is-must"><span class="fl-must">MUST</span>
-          <div class="fl-head"><span class="fl-n">1</span><h3>Your own nose, up close</h3></div>
-          <figure class="fl-shot"><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/step-pores.jpg" alt="Talking to the camera with an extreme close-up of nose pores held up on screen"></figure>
-          <div class="fl-body">
-            <p class="fl-text"><b>Put a macro shot of your own nose pores</b> on screen while you talk.</p>
-            <p>"I squeezed my nose every night for years. This is what it did."</p>
-          </div>
-        </li>
-      </ol>
-    </section>
-
     <section>
-      <div class="sh"><span class="n">02</span><b>How the video goes</b></div>
+      <div class="sh"><span class="n">01</span><b>Pick your video</b></div>
 
-      <div class="lanes one">
+      <div class="lanepick">
+        <button class="lb" type="button" data-set="a" aria-pressed="false">1<i>Stop squeezing, start retinal</i></button>
+        <button class="lb" type="button" data-set="b" aria-pressed="false">2<i>Underarms and elbows</i></button>
+        <button class="lb" type="button" data-set="c" aria-pressed="false">3<i>REMEMBER, area by area</i></button>
+        <button class="lclear" type="button" data-set="">Clear</button>
+        <p class="lanehint" id="lanehint">👆 Tap 1, 2 or 3. Only your option's steps stay on the page.</p>
+      </div>
+
+      <div class="lanes">
         <article class="lane" data-id="a">
-          <div class="lhead">Stop squeezing, start retinal</div>
+          <div class="lhead">Option 1: Stop squeezing, start retinal <span class="flag">Yours</span></div>
           <figure class="slot slot-ref" style="margin:0"><span class="cap">Reference</span>
             <a href="https://www.tiktok.com/@leeskincare7/video/7669135576649583879" target="_blank" rel="noopener"><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/ref-leeskincare7.jpg" alt="She talks to the camera in her pajamas, hand up"><span class="refbar"><b>@leeskincare7</b><span>8.1M views</span></span></a></figure>
           <div class="lbody">
@@ -848,15 +861,62 @@
             <span class="shape"><s>Example</s><q>"I squeezed my nose every night for years"</q></span>
           </div>
         </article>
+        <article class="lane" data-id="b">
+          <div class="lhead">Option 2: Underarms and elbows <span class="flag">Yours</span></div>
+          <figure class="slot slot-ref" style="margin:0">
+            <a href="https://www.tiktok.com/@chxrry.glowy/video/7648689316666854674" target="_blank" rel="noopener"><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/concept-b.jpg" alt="She lifts her arm and talks to the camera"><span class="refbar"><b>@chxrry.glowy</b><span>658K views</span></span></a></figure>
+          <div class="lbody">
+            <p>Arm up, ask why your underarms look darker. Then <b>friction</b>, then a thin layer of the <b>Retinal Peptide Spot Cream</b> on <b>underarms and elbows</b>.</p>
+            <span class="shape"><s>Example</s><q>"why are my underarms darker than the rest of me"</q></span>
+          </div>
+        </article>
+        <article class="lane" data-id="c">
+          <div class="lhead">Option 3: REMEMBER, area by area <span class="flag">Yours</span></div>
+          <figure class="slot slot-ref" style="margin:0">
+            <a href="https://www.tiktok.com/@heylina2484/video/7647939765542587666" target="_blank" rel="noopener"><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/concept-c.jpg" alt="Dots of yellow cream on the forehead"><span class="refbar"><b>@heylina2484</b><span>3.7M views</span></span></a></figure>
+          <div class="lbody">
+            <p><b>REMEMBER</b> on screen, then <b>one dot</b> of the <b>Retinal Peptide Spot Cream</b> per area, each one named on screen.</p>
+            <span class="shape"><s>Example</s><q>"remember, this is where retinal goes"</q></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <section>
+      <div class="card panel">
+        <h4>Must-haves</h4>
+        <ul class="check">
+          <li><b>Option 1:</b> your nose pores up close in the first shot, then <b>1. stop squeezing</b> on screen ⭐</li>
+          <li><b>Option 2:</b> arm up in the first shot, then <b>underarms and elbows</b> ⭐</li>
+          <li><b>Option 3:</b> <b>REMEMBER</b> on screen, then one area at a time ⭐</li>
+          <li><b>Dab</b> the <b>Retinal Peptide Spot Cream</b> on, up close</li>
+          <li>Option 1: <b>2 to 3 nights a week</b>, SPF in the morning. Options 2 and 3: <b>at night</b>, SPF in the morning</li>
+        </ul>
       </div>
     </section>
 
     <section>
-      <div class="sh"><span class="n">03</span><b>Shot by shot</b></div>
+      <div class="sh"><span class="n">02</span><b>Shot by shot</b></div>
 
       <div class="concept" data-id="a">
+        <p class="conhead">Option 1: Stop squeezing, start retinal</p>
       <div class="step">
-        <div class="sthead"><span class="sn"><s>Step</s>1</span><h3>Why squeezing backfires</h3></div>
+        <div class="sthead"><span class="sn"><s>Step</s>1</span><h3>Your own nose, up close</h3></div>
+        <div class="warn">From here on, say it your way.</div>
+        <div class="cols wp">
+          <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/step-pores.jpg" alt="Talking to the camera with an extreme close-up of nose pores held up on screen"></figure></div>
+          <div class="col dir"><h5>Directions</h5><ul>
+            <li><b>Put a macro shot of your own nose pores</b> on screen while you talk.</li>
+          </ul></div>
+          <div class="col talk"><h5>Say something like</h5><ul>
+            <li>"I squeezed my nose every night for years. This is what it did."</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="sthead"><span class="sn"><s>Step</s>2</span><h3>Why squeezing backfires</h3></div>
         <div class="warn">From here on, say it your way.</div>
         <div class="cols wp">
           <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/step-why.jpg" alt="Talking to the camera with a drawing of a pore held up on screen"></figure></div>
@@ -872,7 +932,7 @@
       </div>
 
       <div class="step">
-        <div class="sthead"><span class="sn"><s>Step</s>2</span><h3>Stop squeezing</h3></div>
+        <div class="sthead"><span class="sn"><s>Step</s>3</span><h3>Stop squeezing</h3></div>
         <div class="warn">From here on, say it your way.</div>
         <div class="cols wp">
           <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/step-stop.jpg" alt="She talks to the camera with her hand up, a numbered tip on screen"></figure></div>
@@ -888,7 +948,7 @@
       </div>
 
       <div class="step">
-        <div class="sthead"><span class="sn"><s>Step</s>3</span><h3>Start retinal</h3></div>
+        <div class="sthead"><span class="sn"><s>Step</s>4</span><h3>Start retinal</h3></div>
         <div class="warn">From here on, say it your way.</div>
         <div class="cols wp">
           <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/step-dab.jpg" alt="She taps a fingertip on the side of her nose while talking"></figure></div>
@@ -909,7 +969,7 @@
       </div>
 
       <div class="step is-exact">
-        <div class="sthead"><span class="sn"><s>Step</s>4</span><h3>How often</h3></div>
+        <div class="sthead"><span class="sn"><s>Step</s>5</span><h3>How often</h3></div>
         <div class="warn">From here on, say it your way.</div>
         <p class="hk-say st-exact"><s>Say this</s>"Start 2 to 3 nights a week. SPF in the morning."</p>
         <div class="cols wp">
@@ -923,6 +983,169 @@
         </div>
       </div>
       </div>
+
+      <div class="concept" data-id="b">
+        <p class="conhead">Option 2: Underarms and elbows</p>
+      <div class="step">
+        <div class="sthead"><span class="sn"><s>Step</s>1</span><h3>Arm up, ask the question</h3></div>
+        <div class="warn">From here on, say it your way.</div>
+        <div class="cols wp">
+          <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/concept-b.jpg" alt="She lifts her arm and talks to the camera, &quot;Why are&quot; on screen"></figure></div>
+          <div class="col dir"><h5>Directions</h5><ul>
+            <li>Lift your arm and <b>ask it</b> to the camera.</li>
+            <li>Put your <b>underarm up close</b> on screen if you're okay with it.</li>
+          </ul></div>
+          <div class="col talk"><h5>Say something like</h5><ul>
+            <li>"why are my underarms darker than the rest of me"</li>
+            <li>"okay so nobody talks about this"</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="sthead"><span class="sn"><s>Step</s>2</span><h3>Say why it happens</h3></div>
+        <div class="warn">From here on, say it your way.</div>
+        <div class="cols wp">
+          <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/o2-why.jpg" alt="She talks to the camera with a photo of a tight gray top held up on screen"></figure></div>
+          <div class="col dir"><h5>Directions</h5><ul>
+            <li>Say it's <b>friction</b>: shaving, tight clothes, rough towels.</li>
+            <li>Show one of them while you say it.</li>
+          </ul></div>
+          <div class="col talk"><h5>Say something like</h5><ul>
+            <li>"it's friction. every single day"</li>
+            <li>"tight tops, shaving, scrubbing with a towel"</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="sthead"><span class="sn"><s>Step</s>3</span><h3>A thin layer at night</h3></div>
+        <div class="warn">From here on, say it your way.</div>
+        <div class="cols wp">
+          <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/o2-spread.jpg" alt="Fingers spreading small dots of yellow cream over her underarm"></figure></div>
+          <div class="col dir"><h5>Directions</h5><ul>
+            <li>Squeeze a <b>pea size</b> of the <b>Retinal Peptide Spot Cream</b>.</li>
+            <li>Dot it on your <b>underarm</b> and spread it <b>thin</b> with your fingers.</li>
+            <li>Let it sink in. <b>No rubbing in hard.</b></li>
+          </ul></div>
+          <div class="col talk"><h5>Say something like</h5><ul>
+            <li>"so I stopped rubbing and started retinal"</li>
+            <li>"pea size, thin layer, let it sink in"</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="sthead"><span class="sn"><s>Step</s>4</span><h3>Elbows too</h3></div>
+        <div class="warn">From here on, say it your way.</div>
+        <div class="cols wp">
+          <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/o3-arms.jpg" alt="Fingers spreading yellow cream on the elbow, &quot;elbows&quot; on screen"></figure></div>
+          <div class="col dir"><h5>Directions</h5><ul>
+            <li>Do the same on your <b>elbows</b>, up close.</li>
+          </ul></div>
+          <div class="col talk"><h5>Say something like</h5><ul>
+            <li>"and my elbows, same thing"</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="step is-exact">
+        <div class="sthead"><span class="sn"><s>Step</s>5</span><h3>How often</h3></div>
+        <div class="warn">From here on, say it your way.</div>
+        <p class="hk-say st-exact"><s>Say this</s>"Retinal at night. SPF on my elbows in the morning."</p>
+        <div class="cols wp">
+          <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/o2-thin.jpg" alt="She holds her hand up to the camera, &quot;No thick layers&quot; on screen"></figure></div>
+          <div class="col dir"><h5>Directions</h5><ul>
+            <li>Say it's <b>not overnight</b>.</li>
+            <li>Say your underarms <b>look more even</b>, not that the dark goes away.</li>
+          </ul></div>
+          <div class="col talk"><h5>Say something like</h5><ul>
+            <li>"no thick layers, no scrubbing"</li>
+            <li>"give it a few weeks"</li>
+          </ul></div>
+        </div>
+      </div>
+      </div>
+
+      <div class="concept" data-id="c">
+        <p class="conhead">Option 3: REMEMBER, area by area</p>
+      <div class="step">
+        <div class="sthead"><span class="sn"><s>Step</s>1</span><h3>REMEMBER</h3></div>
+        <div class="warn">From here on, say it your way.</div>
+        <div class="cols wp">
+          <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/concept-c.jpg" alt="Close up of small dots of yellow cream on the forehead and between the brows"></figure></div>
+          <div class="col dir"><h5>Directions</h5><ul>
+            <li>Text on screen: <b>REMEMBER</b></li>
+            <li>Hold up the <b>Retinal Peptide Spot Cream</b> and say you'll show where it goes.</li>
+          </ul></div>
+          <div class="col talk"><h5>Say something like</h5><ul>
+            <li>"remember, this is where retinal goes"</li>
+            <li>"one dot per spot, that's it"</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="sthead"><span class="sn"><s>Step</s>2</span><h3>Pores, dark spots, fine lines</h3></div>
+        <div class="warn">From here on, say it your way.</div>
+        <div class="cols wp">
+          <div class="col shot"><figure><img src="https://dabinvt-create.github.io/vt-creator-guides/rspot-squeeze/img/o3-nose.jpg" alt="Extreme close up of nose pores with a small dot of yellow cream above the lip"></figure></div>
+          <div class="col dir"><h5>Directions</h5><ul>
+            <li>Go <b>up close</b> and dot it on each area.</li>
+            <li>Name each one on screen, like <b>pores</b>, <b>dark spots</b>, <b>fine lines</b>.</li>
+          </ul></div>
+          <div class="col talk"><h5>Say something like</h5><ul>
+            <li>"pores on my nose"</li>
+            <li>"this dark spot"</li>
+            <li>"and the lines between my brows"</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="sthead"><span class="sn"><s>Step</s>3</span><h3>Under eyes and lips, edges only</h3></div>
+        <div class="warn">From here on, say it your way.</div>
+        <div class="cols">
+          <div class="col dir"><h5>Directions</h5><ul>
+            <li><b>Dark circles:</b> a tiny bit on the <b>outer edge</b>, not right under your eye.</li>
+            <li><b>Lips:</b> a tiny bit around the <b>edge</b>, never inside your lips.</li>
+          </ul></div>
+          <div class="col talk"><h5>Say something like</h5><ul>
+            <li>"just the edge here, not under my eye"</li>
+            <li>"tiny bit on the lip line"</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="sthead"><span class="sn"><s>Step</s>4</span><h3>Bumpy arms</h3></div>
+        <div class="warn">From here on, say it your way.</div>
+        <div class="cols">
+          <div class="col dir"><h5>Directions</h5><ul>
+            <li>Show the <b>bumps on your arms</b> up close.</li>
+            <li>Spread a thin layer, then say they <b>look smoother</b>, not gone.</li>
+          </ul></div>
+          <div class="col talk"><h5>Say something like</h5><ul>
+            <li>"and yes, my bumpy arms too"</li>
+            <li>"they look smoother to me"</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="step is-exact">
+        <div class="sthead"><span class="sn"><s>Step</s>5</span><h3>When to use it</h3></div>
+        <div class="warn">From here on, say it your way.</div>
+        <p class="hk-say st-exact"><s>Say this</s>"Retinal at night. SPF in the morning."</p>
+        <div class="cols">
+          <div class="col dir"><h5>Directions</h5><ul>
+            <li>Say it's <b>not overnight</b>.</li>
+          </ul></div>
+          <div class="col talk"><h5>Say something like</h5><ul>
+            <li>"give it a few weeks"</li>
+          </ul></div>
+        </div>
+      </div>
+      </div>
     </section>
   </div>
 
@@ -932,8 +1155,8 @@
       <div class="ddbox ok">
         <h5>Do</h5>
         <ul>
-          <li>Film by a window so your pores are easy to see</li>
-          <li>Use both <b>at night</b> in the video</li>
+          <li>Film by a window so your skin is easy to see</li>
+          <li>Use it <b>at night</b> in the video</li>
           <li>Reply when people ask how often you use it</li>
         </ul>
       </div>
@@ -942,23 +1165,12 @@
         <ul>
           <li><b>No squeezing or pore strip close-ups.</b> Stop your hand before it touches</li>
           <li><b>No before and after.</b></li>
-          <li>Say your pores <b>look smaller</b> or <b>smoother</b>, not that they shrink or go away</li>
-          <li>Keep it about <b>pores</b>, not acne</li>
+          <li>Say it <b>looks smoother</b> or <b>less visible</b>. Not that it treats, cures or removes anything</li>
+          <li><b>Not right under your eye, not inside your lips.</b> Edges only, a tiny bit</li>
+          <li>Keep it about <b>pores, spots and texture</b>, not acne</li>
           <li><b>Pregnant? Skip this one</b> and ask your doctor</li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="card panel">
-      <h4>Must-haves</h4>
-      <ul class="check">
-          <li><b>Your nose pores up close</b> in the first shot ⭐</li>
-          <li><b>1. stop squeezing</b> on screen ⭐</li>
-          <li><b>Dab</b> the <b>Retinal Peptide Spot Cream</b> on your pores ⭐</li>
-          <li><b>2 to 3 nights a week</b>, SPF in the morning</li>
-      </ul>
     </div>
   </section>
 
@@ -972,7 +1184,7 @@
     </div>
     <div class="card capbox" style="margin-top:clamp(12px,1.8vw,20px)">
       <h5>Hashtags</h5>
-      <p class="keyw">#pores #retinal #poretok #koreanskincare #skintok #vtcosmetics</p>
+      <p class="keyw">#pores #retinal #darkspots #koreanskincare #skintok #vtcosmetics</p>
     </div>
   </section>
 
@@ -990,8 +1202,8 @@
     var pick = document.querySelector('.lanepick');
     var hint = document.getElementById('lanehint');
     var KEY = "vt-guide-rspot-squeeze";
-    var IDS = ["a"];
-    var HINTS = {"": "👆 Tap A. Only your concept's steps stay on the page.", "a": "✓ Concept A: Stop squeezing, start retinal."};
+    var IDS = ["a", "b", "c"];
+    var HINTS = {"": "👆 Tap 1, 2 or 3. Only your option's steps stay on the page.", "a": "✓ Option 1: Stop squeezing, start retinal.", "b": "✓ Option 2: Underarms and elbows.", "c": "✓ Option 3: REMEMBER, area by area."};
     if (!pick) { guide.setAttribute('data-lane', IDS[0]); return; }
     function apply(lane) {
       if (IDS.indexOf(lane) >= 0) {

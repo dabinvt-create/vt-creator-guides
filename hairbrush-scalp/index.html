@@ -595,6 +595,14 @@
   .sc-card b{color:var(--ink)}
   /* showcase.more: 번들 가이드 두 번째 제품 (2026-10-09) */
   .showcase.sc-more{margin-top:clamp(18px,2.6vw,32px)}
+  /* showcase.shop_url: 틱톡샵 상품 링크 버튼 (2026-10-12) */
+  .sc-shop{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;
+           background:var(--mint-ink);color:#FFFFFF;font-family:var(--display);font-weight:700;font-size:14.5px;
+           letter-spacing:.02em;text-decoration:none;transition:transform .15s,background .15s}
+  .sc-shop::after{content:"\2192"}
+  .sc-shop:hover{background:var(--deep);transform:translateY(-1px)}
+  .sc-shop:focus-visible{outline:2px solid var(--mint-ink);outline-offset:2px}
+  @media(max-width:760px){.sc-shop{align-self:stretch;justify-content:center}}
 
   /* 히어로가 제품 연출컷(가로형)이면 가운데를 보여준다 */
   .hero .heroshot img{object-position:50% 50%}
@@ -651,6 +659,141 @@
   /* 스텝 사진 자리 영상 (steps.*.video, 2026-10-08). 사진과 같은 크기 */
   .col.shot video{display:block;width:auto;max-width:100%;aspect-ratio:9/13;object-fit:cover;
                   max-height:clamp(220px,24vw,280px);border-radius:12px;margin-inline:auto;background:#000}
+
+  /* hook.big: 훅 칸을 크게 (2026-10-12 rs-sting-react 요청자 "앞부분(후킹)만 크게 강조") */
+  .hooksec.big .hk{grid-template-columns:minmax(0,420px) 1fr;padding:clamp(16px,2.6vw,30px);
+                   border:2px solid var(--deep,var(--mint-ink))}
+  .hooksec.big .sh b{font-size:clamp(26px,4vw,44px)}
+  .hooksec.big .lede{font-size:clamp(17px,1.8vw,20px)}
+  .hooksec.big .hk-over{font-size:clamp(16px,2vw,21px);padding:8px 12px}
+  .hk-shot video{display:block;width:100%;height:100%;object-fit:cover}
+  .hk-say{margin:0 0 20px;font-family:var(--display);font-weight:800;font-size:clamp(26px,3.6vw,42px);
+          line-height:1.12;color:var(--ink);letter-spacing:-.01em}
+  .hk-say s{display:block;text-decoration:none;font-weight:700;font-size:11px;letter-spacing:.13em;
+            text-transform:uppercase;color:var(--deep-2,var(--mint-ink));margin-bottom:8px}
+  .hooksec.big .hk-rows p{font-size:17px}
+  @media(max-width:700px){.hooksec.big .hk{grid-template-columns:1fr}.hooksec.big .hk-shot{max-width:400px}}
+
+  /* explain: 제품 원리 칸, 소비자 말로 (2026-10-12 rs-sting-react) */
+  .ex{background:var(--white);border-radius:var(--r);padding:clamp(16px,2.4vw,28px);box-shadow:0 2px 16px rgba(0,0,0,.06);
+      display:grid;gap:clamp(14px,2vw,22px)}
+  .ex.has-shot{grid-template-columns:minmax(0,240px) 1fr}
+  @media(max-width:700px){.ex.has-shot{grid-template-columns:1fr}}
+  .ex-shot{margin:0;border-radius:12px;overflow:hidden}
+  .ex-shot img{display:block;width:100%;height:auto}
+  .ex-body p{margin:0 0 10px;font-size:clamp(16px,1.6vw,18px);line-height:1.55;color:var(--ink);max-width:62ch}
+  .ex-body p:last-child{margin-bottom:0}
+  .ex-lines{grid-column:1/-1;background:var(--tone,var(--mint-soft));border-radius:calc(var(--r) - 6px);padding:12px 16px}
+  .ex-lines h5{margin:0 0 6px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.13em;
+               text-transform:uppercase;color:var(--deep,var(--mint-ink))}
+  .ex-lines ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:15.5px;color:var(--ink-2)}
+
+  /* flow: 표지 바로 다음 칸, 규칙 한 줄 + 짧은 단계 카드 (2026-10-13 rs-sting-react 요청자 "가이드 너무 길다") */
+  .flowsec .sh b{font-size:clamp(26px,4vw,44px)}
+  .fl-rule{margin:0 0 clamp(16px,2.4vw,26px);font-family:var(--display);font-weight:800;font-size:clamp(22px,3vw,34px);
+           line-height:1.15;color:var(--ink);text-align:center;letter-spacing:-.01em;text-wrap:balance}
+  .flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.8vw,22px);
+        counter-reset:none}
+  @media(max-width:760px){.flow{grid-template-columns:1fr}}
+  .fl-step{background:var(--white);border-radius:var(--r);padding:clamp(14px,1.8vw,20px);box-shadow:0 2px 16px rgba(0,0,0,.06);
+           display:flex;flex-direction:column;gap:12px}
+  .fl-step:first-child{border:2px solid var(--deep,var(--mint-ink))}
+  .fl-step.is-must{border:4px solid var(--deep,var(--mint-ink));position:relative;margin-top:14px;
+                   background:#fff;box-shadow:0 8px 26px rgba(0,0,0,.14)}
+  .flow.fl-2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:820px;margin-inline:auto}
+  @media(max-width:760px){.flow.fl-2{grid-template-columns:1fr}}
+  /* 훅 카드 1장: 가운데, 데스크톱은 사진 왼쪽 글 오른쪽 (2026-10-15 rspot-squeeze 요청자 정민희 "가운데 정렬 해서 예쁘게") */
+  .flow.fl-1{grid-template-columns:1fr;max-width:760px;margin-inline:auto}
+  .flow.fl-1 .fl-step{display:grid;grid-template-columns:minmax(0,300px) 1fr;grid-template-areas:"shot head" "shot body";
+                      grid-template-rows:auto 1fr;column-gap:clamp(18px,2.6vw,32px);row-gap:16px;align-items:start;
+                      padding:clamp(22px,2.8vw,32px)}
+  .flow.fl-1 .fl-head{grid-area:head;margin-top:10px}
+  .flow.fl-1 .fl-shot{grid-area:shot}
+  .flow.fl-1 .fl-body{grid-area:body;align-self:center}
+  .flow.fl-1 .fl-n{display:none}
+  .flow.fl-1 .fl-head h3{font-size:clamp(20px,2.2vw,26px)}
+  .flow.fl-1 .fl-body p{font-size:clamp(16.5px,1.7vw,19px)}
+  .flow.fl-1 .fl-body p:not(.fl-text){margin-top:14px;padding:14px 18px;border-radius:12px;background:var(--tone,var(--mint-soft));
+                      font-family:var(--display);font-weight:800;line-height:1.35}
+  .flow.fl-1 .fl-step.no-shot{grid-template-columns:1fr;grid-template-areas:"head" "body"}
+  @media(max-width:760px){.flow.fl-1 .fl-step{grid-template-columns:1fr;grid-template-areas:"head" "shot" "body"}}
+  /* MUST 배지: flow.steps[].must 일 때만 (2026-10-13 rs-sting-react 요청자 "필수 강조 안 된 것 같다") */
+  .fl-must{position:absolute;top:-18px;left:50%;transform:translateX(-50%);padding:7px 24px;border-radius:999px;
+           background:var(--deep,var(--mint-ink));color:#fff;font-family:var(--display);font-weight:800;font-size:16px;
+           letter-spacing:.18em;line-height:1.2;white-space:nowrap}
+  .fl-step.is-must .fl-head{background:var(--deep,var(--mint-ink));border-radius:10px;padding:10px 12px;margin-top:6px}
+  .fl-step.is-must .fl-head h3{color:#fff}
+  .fl-step.is-must .fl-n{background:#fff;color:var(--deep,var(--mint-ink))}
+  /* flow.options: 훅 다음 영상 구성 예시 (2026-10-13 rs-sting-react) */
+  .fl-opts-wrap{margin:clamp(18px,2.4vw,28px) auto 0;max-width:820px}
+  .fl-opts-wrap h4{margin:0 0 4px;font-family:var(--display);font-weight:800;font-size:clamp(19px,2vw,24px);color:var(--ink);text-align:center}
+  .fl-opts-wrap>p{margin:0 0 12px;text-align:center;color:var(--ink-2);font-size:clamp(15px,1.5vw,16.5px)}
+  .fl-opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.8vw,22px)}
+  @media(max-width:760px){.fl-opts{grid-template-columns:1fr}}
+  .fl-opt{background:var(--white);border:1.5px dashed var(--deep,var(--mint-ink));border-radius:var(--r);padding:14px 18px}
+  .fl-opt b{display:inline-block;font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+            color:var(--deep,var(--mint-ink));margin-bottom:6px}
+  .fl-opt ol{margin:0;padding-left:20px;display:grid;gap:3px;font-size:clamp(15px,1.5vw,16.5px);line-height:1.45;color:var(--ink)}
+  /* showcase.why: 제품 칸 위 작은 원리 상자 (2026-10-13 rs-sting-react) */
+  .sc-why{max-width:760px;margin:0 auto clamp(14px,2vw,22px);background:var(--white);border-radius:var(--r);padding:14px 20px}
+  .sc-why h4{margin:0 0 6px;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+             color:var(--deep,var(--mint-ink))}
+  .sc-why p{margin:0 0 4px;font-size:clamp(15px,1.5vw,16.5px);line-height:1.5;color:var(--ink-2)}
+  .sc-why p:last-child{margin-bottom:0}
+  .fl-head{display:flex;align-items:center;gap:10px}
+  .fl-n{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);
+        font-weight:800;font-size:14px;color:#fff;background:var(--deep,var(--mint-ink))}
+  .fl-head h3{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(17px,1.7vw,20px);line-height:1.2;color:var(--ink)}
+  .fl-shot{margin:0;aspect-ratio:9/13;border-radius:12px;overflow:hidden;background:var(--black)}
+  .fl-shot img,.fl-shot video{display:block;width:100%;height:100%;object-fit:cover}
+  @media(max-width:760px){.fl-shot{max-width:300px;width:100%;margin-inline:auto}}
+  .fl-body p{margin:0 0 8px;font-size:clamp(15.5px,1.5vw,17px);line-height:1.5;color:var(--ink)}
+  .fl-body p:last-child{margin-bottom:0}
+  .fl-body .fl-text{color:var(--ink-2)}
+  .fl-step.no-shot .fl-body{background:var(--tone,var(--mint-soft));border-radius:12px;padding:16px 18px;flex:1;
+                            display:flex;flex-direction:column;justify-content:center}
+  .fl-step.no-shot .fl-body p{font-size:clamp(16px,1.6vw,18px)}
+
+  /* dont_strong: true (2026-10-13 pdrn-eyecream-hook 곽유리 "하면 안 되는 것 강조") */
+  /* 10/13 15:09 곽유리: 빨강 배경, 테두리, 빨강 본문 빼고 글자 크기 동일, DON'T 제목만 빨강 */
+  .ddbox.no.is-strong h5{color:var(--red-ink)}
+
+  /* steps.*.say_exact: 원문 그대로 말할 대사를 스텝 안에 크게 (2026-10-13 pdrn-eyecream-hook) */
+  .step .hk-say.st-exact{margin:4px clamp(18px,2.2vw,24px) 10px;font-size:clamp(20px,2.3vw,26px);line-height:1.2}
+  .step.is-exact{border:2px solid var(--deep,var(--mint-ink))}
+
+  /* concepts[].ref: 콘셉트 카드 사진 자리에 레퍼런스 영상, 눌러서 원본 (2026-10-13 pdrn-eyecream-hook) */
+  .slot.slot-ref a{display:block;width:100%;height:100%;color:inherit;text-decoration:none}
+  .slot.slot-ref a:focus-visible{outline:2px solid var(--mint-ink);outline-offset:-2px}
+  .slot.slot-ref video,.slot.slot-ref img{width:100%;height:100%;object-fit:cover;display:block}
+  .slot.slot-ref .refbar{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;
+        justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;
+        background:linear-gradient(transparent,rgba(0,0,0,.72));color:#FFFFFF;
+        font-family:var(--display);font-size:13px;line-height:1.2}
+  .slot.slot-ref .refbar b{font-weight:700}
+  .slot.slot-ref .refbar span{font-weight:700;color:var(--mint,#BFF0E6)}
+  /* message: 맨 아래 한 줄 메시지 (2026-10-15 pdrn-eyecream-hook 요청자 곽유리) */
+  .msg-line{margin:0 auto;max-width:820px;padding:clamp(20px,3vw,32px) clamp(18px,3vw,36px);border-radius:var(--r);
+            background:var(--deep,var(--mint-ink));color:#fff;text-align:center;font-family:var(--display);font-weight:800;
+            font-size:clamp(20px,2.6vw,30px);line-height:1.3}
+  .msg-line b,.msg-line strong{color:#fff}
+  /* message.position: after_product 가로 띠 (2026-10-15 곽유리) */
+  .msg-band{display:flex;align-items:center;gap:clamp(14px,2.4vw,32px);padding:clamp(18px,2.4vw,26px) clamp(20px,3vw,40px);
+            border-radius:var(--r);background:var(--deep,var(--mint-ink));color:#fff}
+  .msg-band .msg-k{flex:none;font-family:var(--display);font-weight:800;font-size:clamp(13px,1.3vw,15px);letter-spacing:.16em;
+            text-transform:uppercase;padding:8px 16px;border-radius:999px;background:#fff;color:var(--deep,var(--mint-ink))}
+  .msg-band p{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(19px,2.2vw,27px);line-height:1.3;color:#fff}
+  .msg-band p b,.msg-band p strong{color:#fff}
+  @media(max-width:760px){.msg-band{flex-direction:column;align-items:flex-start;gap:12px}}
+  /* message.size: body 면 띠 문장을 제품 불릿과 같은 15px (2026-10-15 곽유리 "그 세줄과 같은 크기로") */
+  .msg-band.msg-body p{font-family:inherit;font-weight:500;font-size:15px;line-height:1.5}
+  /* msg-body 띠 더 얇게, 라벨 흰 알약 없이 하늘색 글씨 (2026-10-15 곽유리) */
+  .msg-band.msg-body{padding:12px clamp(16px,2.4vw,28px);gap:clamp(10px,1.8vw,20px)}
+  .msg-band.msg-body .msg-k{padding:0;background:none;color:#9FDCF2;font-size:13px}
+  /* showcase.points_lead: 불릿 위 한 줄 (2026-10-15 곽유리 "Wild-ginseng PDRN + Cica Reedle for a transformed under eye:") */
+  .sc-lead{margin:0 0 10px;font-family:var(--display);font-weight:800;font-size:clamp(12px,1.12vw,14px);letter-spacing:-.01em;line-height:1.35;color:var(--ink)}
+  /* spec conhead_big: Shot by shot 안 트랙 소제목 크게 (2026-10-15 rspot-squeeze 요청자 정민희 "소제목들 글자 크기가 너무 작아") */
+  .conhead.is-big{font-size:clamp(20px,2.4vw,28px);letter-spacing:.04em;line-height:1.2;margin:clamp(8px,1.4vw,16px) 0 clamp(12px,1.6vw,18px)}
   :root{--tone:#E6F6F4;--tone-2:#D2EEEB;--deep:#0B6E68;--deep-2:#18A396;--mint:#25BBAE;--mint-ink:#0B6E68;--mint-soft:#DAF3F0;--mint-line:#9EDDD6;--False:#F2FAF9;--line:#D3E5E3;--sc-bg:#DDF2F0;}
 /* 요청자 (10/8 21:55): 아마존 썸네일 가로 2배. showcase 제품 사진 크게 */
 .sc-shot{padding:clamp(8px,1.4vw,18px)}
@@ -725,29 +868,12 @@
 
       <div class="concept" data-id="a">
       <div class="step">
-        <div class="sthead"><span class="sn"><s>Step</s>1</span><h3>Result: show your baby hairs</h3></div>
-        <div class="warn">Don't read these word for word. Say it your way.</div>
-        <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/hairbrush-scalp/img/step-babyhair.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/hairbrush-scalp/img/step-babyhair.jpg" autoplay muted loop playsinline aria-label="Toothbrush lifting the little hairs at her hairline, close up"></video></figure></div>
-          <div class="col dir"><h5>Directions</h5><ul>
-            <li>Open on the <b>result</b>. A burst of <b>baby hairs</b> along your part or hairline, up close.</li>
-            <li>Part your hair with your hand to show the spot that used to be bare.</li>
-            <li>Make it about <b>hair growth</b>. Messy little baby hairs, a head full of new hair.</li>
-          </ul></div>
-          <div class="col talk"><h5>Say something like</h5><ul>
-            <li>"if your roots look like this, your part looks like this, grab this"</li>
-            <li>"do you want Rapunzel hair or not?"</li>
-            <li>"why I almost got a $3K hair transplant... I don't need it anymore"</li>
-          </ul></div>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="sthead"><span class="sn"><s>Step</s>2</span><h3>Before: hairline and crown</h3></div>
+        <div class="sthead"><span class="sn"><s>Step</s>1</span><h3>Before: hairline and crown</h3></div>
         <div class="warn">Don't read these word for word. Say it your way.</div>
         <div class="cols wp">
           <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/hairbrush-scalp/img/step-before.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/hairbrush-scalp/img/step-before.jpg" autoplay muted loop playsinline aria-label="Old photo of a thin hairline in the corner, she points up at it"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
+            <li>Show the problem <b>right at the start</b>: <b>see-through scalp</b> and your <b>hairline</b>.</li>
             <li>Show <b>your own Before</b>, hairline and crown.</li>
             <li>Pop an old photo in the corner as your <b>Before</b>, same angle.</li>
             <li>On the crown, talk about <b>hair loss prevention</b>.</li>
@@ -761,7 +887,7 @@
       </div>
 
       <div class="step">
-        <div class="sthead"><span class="sn"><s>Step</s>3</span><h3>Process: the microneedling hair growth shot</h3></div>
+        <div class="sthead"><span class="sn"><s>Step</s>2</span><h3>Process: the microneedling hair growth shot</h3></div>
         <div class="warn">Don't read these word for word. Say it your way.</div>
         <div class="cols wp">
           <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/hairbrush-scalp/img/step-brush.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/hairbrush-scalp/img/step-brush.jpg" autoplay muted loop playsinline aria-label="Brushing the serum on her hairline with the tube, other hand parting her hair"></video></figure></div>
@@ -771,6 +897,8 @@
             <li>Then <b>comb it through with the built-in brush</b> so it spreads evenly.</li>
             <li>Squeeze it out first, then brush. Squeezing right on your scalp just looks wet on camera.</li>
             <li>Say what's different. It has <b>Reedle Shot</b>, the microneedling everyone uses in Korean skincare. Most hair serums are sticky and you can't style your hair after.</li>
+            <li><b>Close up</b> on putting it on, brushing your scalp <b>section by section</b>. Or put it on <b>someone else</b>, like your husband.</li>
+            <li>Put the time on screen, like <b>"30 days"</b>, <b>"3x a week"</b> or <b>"2 weeks"</b>. Or show <b>reviews</b> or <b>sales numbers</b> on screen.</li>
           </ul></div>
           <div class="col talk"><h5>Say something like</h5><ul>
             <li>"it's got Reedle Shot in it. like the microneedling stuff from Korean skincare"</li>
@@ -781,7 +909,7 @@
       </div>
 
       <div class="step">
-        <div class="sthead"><span class="sn"><s>Step</s>4</span><h3>Outro: full hair and baby hairs</h3></div>
+        <div class="sthead"><span class="sn"><s>Step</s>3</span><h3>Outro: full hair and baby hairs</h3></div>
         <div class="warn">Don't read these word for word. Say it your way.</div>
         <div class="cols wp">
           <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/hairbrush-scalp/img/step-outro.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/hairbrush-scalp/img/step-outro.jpg" autoplay muted loop playsinline aria-label="Lifting her hair at the crown, a full head of long curls down to her waist"></video></figure></div>
@@ -794,6 +922,24 @@
             <li>"been doing this about a month now"</li>
             <li>"look at my baby hairs"</li>
             <li>"it's in the orange cart"</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="sthead"><span class="sn"><s>Step</s>4</span><h3>Result: show your baby hairs</h3></div>
+        <div class="warn">Don't read these word for word. Say it your way.</div>
+        <div class="cols wp">
+          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/hairbrush-scalp/img/step-babyhair.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/hairbrush-scalp/img/step-babyhair.jpg" autoplay muted loop playsinline aria-label="Toothbrush lifting the little hairs at her hairline, close up"></video></figure></div>
+          <div class="col dir"><h5>Directions</h5><ul>
+            <li>Open on the <b>result</b>. A burst of <b>baby hairs</b> along your part or hairline, up close.</li>
+            <li>Part your hair with your hand to show the spot that used to be bare.</li>
+            <li>Make it about <b>hair growth</b>. Messy little baby hairs, a head full of new hair.</li>
+          </ul></div>
+          <div class="col talk"><h5>Say something like</h5><ul>
+            <li>"if your roots look like this, your part looks like this, grab this"</li>
+            <li>"do you want Rapunzel hair or not?"</li>
+            <li>"why I almost got a $3K hair transplant... I don't need it anymore"</li>
           </ul></div>
         </div>
       </div>

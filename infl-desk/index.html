@@ -336,7 +336,7 @@
       var b = el("button","room"); b.type = "button"; b.setAttribute("aria-current", String(sel===r.id));
       b.appendChild(avatar(ownerOf(r)));
       var mid = el("span",""); mid.appendChild(el("span","nm", r.title || "새 채팅"));
-      var pv = r.needsClaude ? (r.progress || "Claude 가 답을 쓰고 있어요") : String(r.lastText || "").replace(/\*\*/g,"").replace(/\|[\s:|-]*\|/g," ").replace(/\|/g," ").replace(/\s+/g," ");
+      var pv = r.needsClaude ? (r.progress || "답을 쓰고 있어요") : String(r.lastText || "").replace(/\*\*/g,"").replace(/\|[\s:|-]*\|/g," ").replace(/\|/g," ").replace(/\s+/g," ");
       mid.appendChild(el("span","pv", (scope==="all" ? ownerOf(r)+"  " : "") + pv)); b.appendChild(mid);
       var rt = el("span","rt"); rt.appendChild(el("span","", when(r.updatedAt)));
       if (r.needsClaude) rt.appendChild(el("span","wait","답 쓰는 중"));
@@ -393,8 +393,11 @@
     });
     var r = cur();
     if (r && r.needsClaude && !pend.length){
-      var row = el("div","row other"); var av = avatar("Claude","sm avs","#2FC0BC"); av.style.color = "#fff"; row.appendChild(av);
-      var col = el("div","col"); col.appendChild(el("span","who","Claude"));
+      // 마지막 팀원 글이 GPT 검토 요청이면 GPT 가 쓰는 중
+      var lastMember = all.filter(function(m){ return m.from !== "claude" && m.from !== "gpt"; }).pop();
+      var byGpt = lastMember && lastMember.text === GPT_ASK, who = byGpt ? "GPT" : "Claude";
+      var row = el("div","row other"); var av = avatar(who,"sm avs", byGpt ? "#4F5962" : "#2FC0BC"); av.style.color = "#fff"; row.appendChild(av);
+      var col = el("div","col"); col.appendChild(el("span","who",who));
       var t = el("div","b typing"); t.appendChild(el("i")); t.appendChild(el("i")); t.appendChild(el("i")); col.appendChild(t);
       if (r.progress) col.appendChild(el("span","prog", r.progress));
       row.appendChild(col); box.appendChild(row);

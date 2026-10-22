@@ -803,21 +803,6 @@
 @media(max-width:860px){.hero{min-height:0;align-content:start}.hero .heroshot{position:relative;inset:auto;width:100%;height:300px;order:-1}
   .hero .heroshot img{object-fit:contain;object-position:50% 50%}.hero::after{display:none}.hero>div{padding-top:8px}}
 
-
-  .lanes.four{grid-template-columns:repeat(4,minmax(0,1fr))}
-  @media(max-width:1100px){.lanes.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media(max-width:560px){.lanes.four{grid-template-columns:1fr}}
-  [data-lane="d"] .concept:not([data-id="d"]){display:none}
-  [data-lane="d"] .lane:not([data-id="d"]){opacity:.38}
-  [data-lane="d"] .lane[data-id="d"]{border-color:var(--mint)}
-  [data-lane="d"] .lane[data-id="d"] .flag{
-    display:inline-block;background:var(--mint-ink);color:#FFFFFF;border-radius:999px;
-    font-family:var(--display);font-weight:700;font-size:9px;letter-spacing:.12em;
-    text-transform:uppercase;padding:3px 9px}
-  [data-lane="d"] .lanetalk[data-id="d"]{display:block}
-  .lanepick:not(.chosen) button.lb:nth-of-type(4){animation-delay:1.05s}
-  @media(min-width:861px){.lanepick:has(button.lb:nth-of-type(4)){grid-template-columns:repeat(4,minmax(0,1fr))}}
-  @media(max-width:860px){.lanepick:has(button.lb:nth-of-type(4)){grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -871,13 +856,12 @@
       <div class="lanepick">
         <button class="lb" type="button" data-set="a" aria-pressed="false">A<i>One eye for 2 weeks</i></button>
         <button class="lb" type="button" data-set="b" aria-pressed="false">B<i>Talk review, then tap it on</i></button>
-        <button class="lb" type="button" data-set="c" aria-pressed="false">C<i>Captions only, hands only</i></button>
-        <button class="lb" type="button" data-set="d" aria-pressed="false">D<i>Reply to a comment</i></button>
+        <button class="lb" type="button" data-set="c" aria-pressed="false">C<i>Reply to a comment</i></button>
         <button class="lclear" type="button" data-set="">Clear</button>
-        <p class="lanehint" id="lanehint">👆 Tap A or B or C or D. Only your concept's steps stay on the page.</p>
+        <p class="lanehint" id="lanehint">👆 Tap A or B or C. Only your concept's steps stay on the page.</p>
       </div>
 
-      <div class="lanes four">
+      <div class="lanes">
         <article class="lane" data-id="a">
           <div class="lhead">Concept A: One eye for 2 weeks <span class="flag">Yours</span></div>
           <figure class="slot" style="margin:0"><span class="cap">Reference</span>
@@ -897,16 +881,7 @@
           </div>
         </article>
         <article class="lane" data-id="c">
-          <div class="lhead">Concept C: Captions only, hands only <span class="flag">Yours</span></div>
-          <figure class="slot" style="margin:0"><span class="cap">Reference</span>
-            <video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/lane-c.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/lane-c.jpg" autoplay muted loop playsinline aria-label="Fingers pulling the corner of her eye, &quot;60 chasing down 49? Week 1&quot; on screen"></video></figure>
-          <div class="lbody">
-            <p><b>No voice needed.</b> One caption line, the tube and texture on your hand, one usage caption, then the cart.</p>
-            <span class="shape"><s>Example</s><q>"Sunken under eyes?"</q></span>
-          </div>
-        </article>
-        <article class="lane" data-id="d">
-          <div class="lhead">Concept D: Reply to a comment <span class="flag">Yours</span></div>
+          <div class="lhead">Concept C: Reply to a comment <span class="flag">Yours</span></div>
           <figure class="slot" style="margin:0"><span class="cap">Reference</span>
             <video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/lane-d.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/lane-d.jpg" autoplay muted loop playsinline aria-label="Man with a reply sticker &quot;Prove it is not AI&quot; on screen, covering one eye"></video></figure>
           <div class="lbody">
@@ -959,7 +934,7 @@
       <div class="step">
         <div class="sthead"><span class="sn"><s>Scene</s>3</span><h3>One eye only, with the silver tip</h3></div>
         <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-tip.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-tip.jpg" autoplay muted loop playsinline aria-label="She presses the silver tip of the mint tube against her fingertip"></video></figure></div>
+          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-tip.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-tip.jpg" autoplay muted loop playsinline aria-label="She holds the silver tip of the mint tube under her eye while she talks"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
             <li>Put it on <b>one eye</b> and the <b>brow bone</b>. Same eye every day.</li>
             <li>Let the <b>silver tip</b> massage it in, then <b>tap with your ring finger</b>. Don't rub.</li>
@@ -971,7 +946,7 @@
         <div class="sthead"><span class="sn"><s>Scene</s>4</span><h3>Right after, how it feels</h3></div>
         <div class="warn">Don't read these word for word. Say it your way.</div>
         <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/hook-point.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/hook-point.jpg" autoplay muted loop playsinline aria-label="Bare-faced woman pressing her finger under her eye, talking to the camera"></video></figure></div>
+          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/hook-point.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/hook-point.jpg" autoplay muted loop playsinline aria-label="Bare-faced woman with the silver tip under her eye, talking to the camera"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
             <li>Talk about <b>how it feels</b>, not how it looks yet.</li>
             <li><b>Silver tip</b> side vs <b>finger only</b> side. Which one feels <b>cooler</b>, which <b>sinks in</b> faster.</li>
@@ -1003,7 +978,7 @@
       <div class="step">
         <div class="sthead"><span class="sn"><s>Scene</s>6</span><h3>Answer the questions, then the cart</h3></div>
         <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.jpg" autoplay muted loop playsinline aria-label="She holds the mint tube up next to her face and talks to the camera"></video></figure></div>
+          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.jpg" autoplay muted loop playsinline aria-label="She holds the mint tube up and talks to the camera"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
             <li>Answer <b>white cast</b>, <b>under makeup</b> and <b>how long it lasts</b>.</li>
             <li>Then the <b>launch price</b> or <b>sell-out</b>, and the <b>orange cart</b>.</li>
@@ -1036,7 +1011,7 @@
       <div class="step">
         <div class="sthead"><span class="sn"><s>Scene</s>2</span><h3>Tap it on, up close</h3></div>
         <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-tube.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-tube.jpg" autoplay muted loop playsinline aria-label="She holds the mint tube with the silver tip toward the camera"></video></figure></div>
+          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-tube.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-tube.jpg" autoplay muted loop playsinline aria-label="Up close, the silver tip of the mint tube under her eye"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
             <li>Go <b>up close</b> on your <b>under eye</b> and <b>upper lid</b>.</li>
             <li><b>Tap with your ring finger.</b></li>
@@ -1050,7 +1025,7 @@
         <div class="sthead"><span class="sn"><s>Scene</s>3</span><h3>PDRN and Reedle Shot in one sentence</h3></div>
         <div class="warn">Don't read these word for word. Say it your way.</div>
         <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-pdrn.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-pdrn.jpg" autoplay muted loop playsinline aria-label="She talks to the camera with PDRN on screen above her head"></video></figure></div>
+          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-pdrn.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-pdrn.jpg" autoplay muted loop playsinline aria-label="She holds the mint tube and talks, &quot;VT COSMETICS PDRN Reedle Shot Eye Cream&quot; on screen"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
             <li>Explain <b>PDRN</b> and <b>Reedle Shot</b> in <b>one sentence</b>.</li>
             <li>Then the <b>price</b>, and your <b>before photo</b> on screen.</li>
@@ -1081,7 +1056,7 @@
         <div class="sthead"><span class="sn"><s>Scene</s>5</span><h3>Grab it before it sells out</h3></div>
         <div class="warn">Don't read these word for word. Say it your way.</div>
         <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.jpg" autoplay muted loop playsinline aria-label="She holds the mint tube up next to her face and talks to the camera"></video></figure></div>
+          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.jpg" autoplay muted loop playsinline aria-label="She holds the mint tube up and talks to the camera"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
             <li><b>Grab it before it sells out again</b>, and the <b>orange cart</b>.</li>
             <li>Selling it as a duo? Say <b>they're on sale together</b>.</li>
@@ -1094,65 +1069,7 @@
       </div>
 
       <div class="concept" data-id="c">
-        <p class="conhead">Concept C: Captions only, hands only</p>
-      <div class="step">
-        <div class="sthead"><span class="sn"><s>Scene</s>1</span><span class="st-badge">HOOKING (0~3S)</span><h3>One caption line</h3></div>
-        <div class="warn">Don't read these word for word. Say it your way.</div>
-        <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/lane-c.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/lane-c.jpg" autoplay muted loop playsinline aria-label="Fingers pulling the corner of her eye with a caption on screen"></video></figure></div>
-          <div class="col dir"><h5>Directions</h5><ul>
-            <li><b>One caption line</b> on screen. No voice needed.</li>
-            <li>Name the <b>symptom</b>, then the <b>ingredient</b>. People save these.</li>
-            <li>Or just the <b>price</b>, or a <b>sell-out</b> heads up.</li>
-          </ul></div>
-          <div class="col talk"><h5>Say something like</h5><ul>
-            <li>"Sunken under eyes?"</li>
-            <li>"if you want an eye cream to snatch ur eyes…"</li>
-            <li>"If you have sunken under eyes, you need PDRN."</li>
-            <li>"Don't come complaining I didn't warn you. It just went on sale."</li>
-          </ul></div>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="sthead"><span class="sn"><s>Scene</s>2</span><h3>The tube and the texture</h3></div>
-        <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-tube.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-tube.jpg" autoplay muted loop playsinline aria-label="She holds the mint tube with the silver tip toward the camera"></video></figure></div>
-          <div class="col dir"><h5>Directions</h5><ul>
-            <li>Show the <b>tube</b>, the <b>texture on the back of your hand</b>, and the <b>label</b> up close.</li>
-          </ul></div>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="sthead"><span class="sn"><s>Scene</s>3</span><h3>One usage caption</h3></div>
-        <div class="warn">Don't read these word for word. Say it your way.</div>
-        <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-tip.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-tip.jpg" autoplay muted loop playsinline aria-label="She presses the silver tip of the mint tube against her fingertip"></video></figure></div>
-          <div class="col dir"><h5>Directions</h5><ul>
-            <li><b>Usage caption</b>, like <b>don't forget the upper lid</b>.</li>
-            <li>Or the <b>authenticity seal</b> up close.</li>
-          </ul></div>
-          <div class="col talk"><h5>Say something like</h5><ul>
-            <li>"don't forget the upper lid"</li>
-          </ul></div>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="sthead"><span class="sn"><s>Scene</s>4</span><h3>Caption and the orange cart</h3></div>
-        <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.jpg" autoplay muted loop playsinline aria-label="She holds the mint tube up next to her face and talks to the camera"></video></figure></div>
-          <div class="col dir"><h5>Directions</h5><ul>
-            <li>End on a caption, like <b>give it two weeks</b> or <b>before it sells out</b>.</li>
-            <li><b>Orange cart</b> on.</li>
-          </ul></div>
-        </div>
-      </div>
-      </div>
-
-      <div class="concept" data-id="d">
-        <p class="conhead">Concept D: Reply to a comment</p>
+        <p class="conhead">Concept C: Reply to a comment</p>
       <div class="step">
         <div class="sthead"><span class="sn"><s>Scene</s>1</span><span class="st-badge">HOOKING (0~3S)</span><h3>The doubtful comment on screen</h3></div>
         <div class="warn">Don't read these word for word. Say it your way.</div>
@@ -1189,7 +1106,7 @@
       <div class="step">
         <div class="sthead"><span class="sn"><s>Scene</s>3</span><h3>How you use it, plus the FAQ</h3></div>
         <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/hook-point.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/hook-point.jpg" autoplay muted loop playsinline aria-label="Bare-faced woman pressing her finger under her eye, talking to the camera"></video></figure></div>
+          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/hook-point.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/hook-point.jpg" autoplay muted loop playsinline aria-label="Bare-faced woman with the silver tip under her eye, talking to the camera"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
             <li>Your routine: <b>before makeup like a primer</b>, <b>tap with your ring finger</b>.</li>
             <li>Answer <b>how long it lasts</b> and <b>white cast</b>.</li>
@@ -1201,7 +1118,7 @@
         <div class="sthead"><span class="sn"><s>Scene</s>4</span><h3>Still in stock, orange cart</h3></div>
         <div class="warn">Don't read these word for word. Say it your way.</div>
         <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.jpg" autoplay muted loop playsinline aria-label="She holds the mint tube up next to her face and talks to the camera"></video></figure></div>
+          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/pdrn-eyecream-orig/img/step-close.jpg" autoplay muted loop playsinline aria-label="She holds the mint tube up and talks to the camera"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
             <li>Say the link is still up, then the <b>orange cart</b>.</li>
           </ul></div>
@@ -1287,8 +1204,8 @@
     var pick = document.querySelector('.lanepick');
     var hint = document.getElementById('lanehint');
     var KEY = "vt-guide-pdrn-eyecream-orig";
-    var IDS = ["a", "b", "c", "d"];
-    var HINTS = {"": "👆 Tap A or B or C or D. Only your concept's steps stay on the page.", "a": "✓ Concept A: One eye for 2 weeks.", "b": "✓ Concept B: Talk review, then tap it on.", "c": "✓ Concept C: Captions only, hands only.", "d": "✓ Concept D: Reply to a comment."};
+    var IDS = ["a", "b", "c"];
+    var HINTS = {"": "👆 Tap A or B or C. Only your concept's steps stay on the page.", "a": "✓ Concept A: One eye for 2 weeks.", "b": "✓ Concept B: Talk review, then tap it on.", "c": "✓ Concept C: Reply to a comment."};
     if (!pick) { guide.setAttribute('data-lane', IDS[0]); return; }
     function apply(lane) {
       if (IDS.indexOf(lane) >= 0) {

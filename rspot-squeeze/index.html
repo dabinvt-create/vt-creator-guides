@@ -414,6 +414,7 @@
   [data-lane="c"] .concept:not([data-id="c"]){display:none}
   .sep{display:inline-block;width:1px;height:.9em;background:currentColor;opacity:.45;margin:0 .6em;vertical-align:-.1em}
   button.lb i{font-style:normal;font-weight:600;opacity:.8;margin-left:.45em;letter-spacing:.04em}
+  button.lb .lcta{font-weight:800;opacity:1;margin-left:.3em;color:var(--mint-ink,inherit);text-decoration:underline;text-underline-offset:2px}
   /* 흐름 하나짜리 가이드: 아이디어 카드를 사진 왼쪽, 글 오른쪽으로 */
   .lanes.one .lane{display:grid;grid-template-columns:minmax(0,280px) 1fr;align-items:stretch}
   .lanes.one .lane .lhead{grid-column:1 / -1}
@@ -853,9 +854,9 @@
       <div class="sh"><span class="n">01</span><b>Pick your video</b></div>
 
       <div class="lanepick">
-        <button class="lb" type="button" data-set="a" aria-pressed="false">1<i>Pore care</i></button>
-        <button class="lb" type="button" data-set="b" aria-pressed="false">2<i>Dark spots</i></button>
-        <button class="lb" type="button" data-set="c" aria-pressed="false">3<i>Remember: where to apply it</i></button>
+        <button class="lb" type="button" data-set="a" aria-pressed="false">1<i>Pore care <b class="lcta">(Click!)</b></i></button>
+        <button class="lb" type="button" data-set="b" aria-pressed="false">2<i>Dark spots <b class="lcta">(Click!)</b></i></button>
+        <button class="lb" type="button" data-set="c" aria-pressed="false">3<i>Remember: where to apply it <b class="lcta">(Click!)</b></i></button>
         <button class="lclear" type="button" data-set="">Clear</button>
         <p class="lanehint" id="lanehint">👆 Tap 1, 2 or 3. Only your option's steps stay on the page.</p>
       </div>

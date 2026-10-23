@@ -465,6 +465,8 @@
   .concept>.step{margin-bottom:0}
   .concept{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,22px);align-items:start}
   @media(max-width:860px){.concept{grid-template-columns:1fr}}
+  /* steps_row: 스텝 가로 한 줄 (2026-10-23 stickbalm-cakey) */
+  @media(min-width:861px){.concept.strow{grid-template-columns:repeat(var(--stn,3),minmax(0,1fr))}}
   .conhead{grid-column:1 / -1;text-align:center;color:var(--deep-2)}
   .step .sthead{background:none;border-bottom:0;padding:clamp(18px,2.2vw,24px) clamp(18px,2.2vw,24px) 6px;
                 align-items:center;gap:14px}
@@ -662,6 +664,8 @@
   /* 스텝 사진 자리 영상 (steps.*.video, 2026-10-08). 사진과 같은 크기 */
   .col.shot video{display:block;width:auto;max-width:100%;aspect-ratio:9/13;object-fit:cover;
                   max-height:clamp(220px,24vw,280px);border-radius:12px;margin-inline:auto;background:#000}
+  /* wide 스텝 영상: 두 장 붙인 가로 영상이 9:13 으로 잘리지 않게 원래 비율 (2026-10-23 stickbalm-cakey 훅 A, B) */
+  .col.shot.wide video{width:100%;height:auto;aspect-ratio:auto;max-height:none}
 
   /* hook.big: 훅 칸을 크게 (2026-10-12 rs-sting-react 요청자 "앞부분(후킹)만 크게 강조") */
   .hooksec.big .hk{grid-template-columns:minmax(0,420px) 1fr;padding:clamp(16px,2.6vw,30px);
@@ -960,7 +964,7 @@
     </div>
     <div class="card capbox" style="margin-top:clamp(12px,1.8vw,20px)">
       <h5>Hashtags</h5>
-      <p class="keyw">#vtcosmetics #eyepatches #koreanskincare #undereye #finelines #smilelines</p>
+      <p class="keyw">#eyepatches #koreanskincare #undereye #finelines #smilelines</p>
     </div>
   </section>
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>CAKEY IN THE CREASES</title>
+<title>1 MINUTE CAKEY MAKEUP FIX</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700&display=swap">
@@ -808,6 +808,16 @@
     font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
   /* hero.sub_oneline: 데스크톱에서 히어로 부제를 한 줄로 (2026-10-23 stickbalm-cakey 요청자 이예진) */
   @media(min-width:861px){.hero .sub.sub-1{max-width:none;white-space:nowrap}}
+
+  /* steps.*.videos: 9:13 두 장 같은 크기로 나란히 (2026-10-23 stickbalm-cakey 요청자 이예진 "예시 동영상 2개, 크게, 정렬 맞게") */
+  .col.shot.duo{display:grid;grid-template-columns:repeat(2,minmax(0,300px));justify-content:center;
+                gap:clamp(10px,1.4vw,16px);align-items:start}
+  .col.shot.duo figure{margin:0;position:relative;width:100%}
+  .col.shot.duo video{display:block;width:100%;height:auto;max-width:100%;max-height:none;aspect-ratio:9/13;
+                      object-fit:cover;border-radius:12px;background:#000;margin:0}
+  .col.shot.duo .vlab{position:absolute;left:10px;top:10px;z-index:2;width:34px;height:34px;border-radius:50%;
+                      display:grid;place-items:center;background:var(--mint,#2FC0BC);color:#fff;
+                      font-family:var(--display);font-weight:800;font-size:17px}
   :root{--tone:#E7F6F9;--tone-2:#D1EDF3;--deep:#0F5A68;--deep-2:#2A8FA3;--mint:#6BC0D2;--mint-ink:#0F5A68;--mint-soft:#DDF1F6;--mint-line:#A9DCE7;--False:#F1FAFC;--line:#CFE6EC;}
 .hero::after{background:linear-gradient(90deg,rgba(231,246,249,0) 30%,rgba(231,246,249,.86) 50%,var(--tone) 62%)}
 @media(max-width:860px){.hero::after{background:linear-gradient(180deg,rgba(231,246,249,0) 34%,rgba(231,246,249,.86) 62%,var(--tone) 92%)}}
@@ -821,8 +831,8 @@
     <div>
       <div class="brandmark"><img src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/logo-black.png" alt="VT Cosmetics"></div>
       <p class="kicker">PDRN Essence Stick Balm<span class="sep"></span>Creator Brief</p>
-      <h1 class="slogan">Cakey in the creases?<br><i>Prep the lines first.</i></h1>
-      <p class="sub sub-1">Roll it where your concealer cracks, then do your makeup.</p>
+      <h1 class="slogan">1 minute cakey makeup fix?<br><i>Roll this on first.</i></h1>
+      <p class="sub sub-1">Roll it where your makeup cracks, then do your makeup.</p>
     </div>
     <figure class="heroshot">
       <img src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/hero.jpg" alt="VT PDRN Essence Stick Balm floating over a teal background with bubbles">
@@ -831,64 +841,44 @@
 
   <div class="chromerule"></div>
 
-  <div class="sig">
-    <span class="sl">The opening shot</span>
-    <p><b>Your concealer sitting in the lines, up close.</b> Point right at it before anything else.</p>
-  </div>
-
   <div id="guide">
     <section>
       <div class="sh"><span class="n">02</span><b>How the video goes</b></div>
 
       <div class="concept strow" style="--stn:1" data-id="a">
       <div class="step">
-        <div class="sthead"><span class="sn"><s>Step</s>1</span><span class="st-badge">HOOKING</span><h3>Point to the spot where it cracks</h3></div>
-        <div class="warn">Say it your way. Here are a few examples.</div>
+        <div class="sthead"><span class="sn"><s>Step</s>1</span><span class="st-badge">HOOKING</span><h3>Point to where dry skin or lines crack your makeup</h3></div>
         <div class="cols wp stack">
-          <div class="col shot wide"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/step-hook-ab.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/step-hook-ab.jpg" autoplay muted loop playsinline aria-label="A: finger pointing right under a dry eye area. B: close-up box of the eye over her face, finger pointing at it"></video></figure></div>
+          <div class="col shot duo"><figure><span class="vlab">A</span><video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/hook-a.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/hook-a.jpg" autoplay muted loop playsinline aria-label="A: finger pointing right under a dry eye area"></video></figure><figure><span class="vlab">B</span><video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/hook-b.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/hook-b.jpg" autoplay muted loop playsinline aria-label="B: close-up box of her cheek over her face, finger pointing at it"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
             <li>Right at the start, show <b>your concealer settled into the lines</b>. Under eye, smile lines, wherever yours does it.</li>
             <li><b>A.</b> Go right up on the spot and point at it with your finger.</li>
-            <li><b>B.</b> Put a <b>close-up of that spot</b> in a box over your face and point at the box.</li>
+            <li><b>B.</b> Overlay a <b>close-up of that spot</b> on your face and point at it.</li>
             <li>Add text saying where it creases, like <b>under eyes</b>, <b>smile lines</b> or <b>fine lines</b>.</li>
-          </ul></div>
-          <div class="col talk"><h5>Say something like</h5><ul>
-            <li>"This is my under eye an hour after I put concealer on"<span>Swap in wherever yours cracks</span></li>
-            <li>"Look how it just sits in there. Okay fixing this first"</li>
           </ul></div>
         </div>
       </div>
 
       <div class="step">
         <div class="sthead"><span class="sn"><s>Step</s>2</span><h3>Roll the stick over that spot</h3></div>
-        <div class="warn">Say it your way. Here are a few examples.</div>
-        <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/step-roll.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/step-roll.jpg" autoplay muted loop playsinline aria-label="VT PDRN Essence Stick Balm label up close, then rolled right under her eye"></video></figure></div>
+        <div class="cols wp stack">
+          <div class="col shot duo"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/roll-a.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/roll-a.jpg" autoplay muted loop playsinline aria-label="VT PDRN Essence Stick Balm rolled over her cheek up close"></video></figure><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/roll-b.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/roll-b.jpg" autoplay muted loop playsinline aria-label="VT PDRN Essence Stick Balm rolled right under her eye"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
             <li>Wipe that spot clean first.</li>
             <li>Twist it up and <b>roll it right over the lines you just showed</b>.</li>
             <li>Get the stick and the spot in one close frame. Pat it in with your ring finger.</li>
           </ul></div>
-          <div class="col talk"><h5>Say something like</h5><ul>
-            <li>"Okay so this goes on first"</li>
-            <li>"Right where it was cracking"</li>
-          </ul></div>
         </div>
       </div>
 
       <div class="step">
-        <div class="sthead"><span class="sn"><s>Step</s>3</span><h3>Put your makeup back on, then show your face</h3></div>
-        <div class="warn">Say it your way. Here are a few examples.</div>
-        <div class="cols wp">
-          <div class="col shot"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/step-glow.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/step-glow.jpg" autoplay muted loop playsinline aria-label="Foundation going on with a brush over the balm, then her face glowing in the light"></video></figure></div>
+        <div class="sthead"><span class="sn"><s>Step</s>3</span><h3>Put your makeup back on, then show your glow face</h3></div>
+        <div class="cols wp stack">
+          <div class="col shot duo"><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/glow-a.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/glow-a.jpg" autoplay muted loop playsinline aria-label="Foundation going on with a brush, then her face glowing in the light"></video></figure><figure><video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/glow-b.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/glow-b.jpg" autoplay muted loop playsinline aria-label="Brushing makeup over her cheek, then her dewy face up close"></video></figure></div>
           <div class="col dir"><h5>Directions</h5><ul>
-            <li>Put the <b>same concealer</b> back on over that spot.</li>
+            <li>Do your makeup again over that spot.</li>
             <li>Go in close on that spot again so people can <b>see how it looks now</b>.</li>
             <li>Last frame is <b>your face in the light</b>, not the stick.</li>
-          </ul></div>
-          <div class="col talk"><h5>Say something like</h5><ul>
-            <li>"Same concealer btw"</li>
-            <li>"Okay I'm not touching it again today"</li>
           </ul></div>
         </div>
       </div>
@@ -896,20 +886,20 @@
     </section>
 
     <section>
-      <div class="sh"><span class="n">03</span><b>Watch this first</b></div>
-      <p class="lede"><b>Copy the flow.</b> The first one is another brand's stick, so use your VT one.</p>
+      <div class="sh"><span class="n">03</span><b>Reference</b></div>
+      <p class="lede"><b>Copy the flow.</b></p>
       <div class="refs">
-        <a class="ref" href="https://www.tiktok.com/@ava.roxana/video/7684516520969375007" target="_blank" rel="noopener">
-          <video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/ref-ava.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/ref-ava.jpg" autoplay muted loop playsinline aria-label="Creator pointing under her eye with a close-up box of her eye over her face"></video>
-          <div class="rb"><b>@ava.roxana</b><span>She points to her under eye while a close-up plays in a small box, then rolls the stick over that spot.</span><span class="metric">1.3M views, 1.93% saves</span></div>
-        </a>
         <a class="ref" href="https://www.tiktok.com/@itsedonna/video/7585902668502158613" target="_blank" rel="noopener">
           <video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/ref-itsedonna.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/ref-itsedonna.jpg" autoplay muted loop playsinline aria-label="She presses a finger under her eye, 1 minute cakey make up fix on screen"></video>
           <div class="rb"><b>@itsedonna</b><span>Points under her eye, then the stick right on it</span><span class="metric">1.6M views</span></div>
         </a>
-        <a class="ref" href="https://www.tiktok.com/@songofskin/video/7654452019188518157" target="_blank" rel="noopener">
-          <video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/ref-songofskin.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/ref-songofskin.jpg" autoplay muted loop playsinline aria-label="She rolls a metal tip through cream under her eye, up close"></video>
-          <div class="rb"><b>@songofskin</b><span>Rolls the tip right under her eye, up close</span><span class="metric">7.9M views</span></div>
+        <a class="ref" href="https://www.tiktok.com/@songofskin/video/7497228124153761067" target="_blank" rel="noopener">
+          <video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/ref-songofskin2.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/ref-songofskin2.jpg" autoplay muted loop playsinline aria-label="She rolls the VT stick under her eye, then holds up the PDRN box"></video>
+          <div class="rb"><b>@songofskin</b><span>Rolls the stick under her eye, then shows the box</span><span class="metric">2.5M views</span></div>
+        </a>
+        <a class="ref" href="https://www.tiktok.com/@chaem5050/video/7608769987804712212" target="_blank" rel="noopener">
+          <video src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/ref-chaem.mp4" poster="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/ref-chaem.jpg" autoplay muted loop playsinline aria-label="She points right under her dry eye area up close"></video>
+          <div class="rb"><b>@chaem5050</b><span>Points right at the dry spot under her eye</span><span class="metric">1.3M views</span></div>
         </a>
       </div>
     </section>
@@ -955,15 +945,15 @@
 
   <section>
     <div class="sh"><b>Caption &amp; Hashtags</b></div>
-    <div class="capgrid" style="grid-template-columns:1fr">
+    <div class="capgrid">
       <div class="card capbox">
         <h5>Must tag</h5>
         <p><b>TT</b> @vtcosmetics_global<br><b>IG</b> @vtcosmetics_global</p>
       </div>
-    </div>
-    <div class="card capbox" style="margin-top:clamp(12px,1.8vw,20px)">
-      <h5>Hashtags</h5>
-      <p class="keyw">#vtcosmetics #pdrn #stickbalm #cakeymakeup #concealerhack #koreanskincare</p>
+      <div class="card capbox">
+        <h5>Hashtags</h5>
+        <p class="keyw">#vtcosmetics #pdrn #stickbalm #cakeymakeup #concealerhack #koreanskincare</p>
+      </div>
     </div>
   </section>
 

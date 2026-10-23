@@ -467,6 +467,8 @@
   @media(max-width:860px){.concept{grid-template-columns:1fr}}
   /* steps_row: 스텝 가로 한 줄 (2026-10-23 stickbalm-cakey) */
   @media(min-width:861px){.concept.strow{grid-template-columns:repeat(var(--stn,3),minmax(0,1fr))}}
+  /* steps_row: 1 (세로 한 줄)이면 넓은 스텝 사진이 화면 폭만큼 커지지 않게 */
+  .concept.strow[style*="--stn:1"] .col.shot.wide img,.concept.strow[style*="--stn:1"] .col.shot.wide video{max-width:620px;margin-inline:auto}
   .conhead{grid-column:1 / -1;text-align:center;color:var(--deep-2)}
   .step .sthead{background:none;border-bottom:0;padding:clamp(18px,2.2vw,24px) clamp(18px,2.2vw,24px) 6px;
                 align-items:center;gap:14px}
@@ -834,7 +836,7 @@
 
   <div id="guide">
     <section>
-      <div class="sh"><span class="n">01</span><b>What you're filming</b></div>
+      <div class="sh"><span class="n">01</span><b>Hook</b></div>
 
       <div class="lanes one">
         <article class="lane" data-id="a">
@@ -852,7 +854,7 @@
     <section>
       <div class="sh"><span class="n">02</span><b>How the video goes</b></div>
 
-      <div class="concept strow" style="--stn:3" data-id="a">
+      <div class="concept strow" style="--stn:1" data-id="a">
       <div class="step">
         <div class="sthead"><span class="sn"><s>Step</s>1</span><span class="st-badge">HOOKING</span><h3>Point to the spot where it cracks</h3></div>
         <div class="warn">Say it your way. Here are a few examples.</div>

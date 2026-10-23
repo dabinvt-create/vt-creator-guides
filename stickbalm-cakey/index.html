@@ -806,6 +806,8 @@
   /* step badge: 번호 옆 강조 알약 (2026-10-21 hairbrush-scalp 양채경) */
   .step .sthead .st-badge{flex:none;align-self:center;padding:6px 12px;border-radius:999px;background:var(--deep,var(--mint-ink));color:#fff;
     font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+  /* hero.sub_oneline: 데스크톱에서 히어로 부제를 한 줄로 (2026-10-23 stickbalm-cakey 요청자 이예진) */
+  @media(min-width:861px){.hero .sub.sub-1{max-width:none;white-space:nowrap}}
   :root{--tone:#E7F6F9;--tone-2:#D1EDF3;--deep:#0F5A68;--deep-2:#2A8FA3;--mint:#6BC0D2;--mint-ink:#0F5A68;--mint-soft:#DDF1F6;--mint-line:#A9DCE7;--False:#F1FAFC;--line:#CFE6EC;}
 .hero::after{background:linear-gradient(90deg,rgba(231,246,249,0) 30%,rgba(231,246,249,.86) 50%,var(--tone) 62%)}
 @media(max-width:860px){.hero::after{background:linear-gradient(180deg,rgba(231,246,249,0) 34%,rgba(231,246,249,.86) 62%,var(--tone) 92%)}}
@@ -820,7 +822,7 @@
       <div class="brandmark"><img src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/logo-black.png" alt="VT Cosmetics"></div>
       <p class="kicker">PDRN Essence Stick Balm<span class="sep"></span>Creator Brief</p>
       <h1 class="slogan">Cakey in the creases?<br><i>Prep the lines first.</i></h1>
-      <p class="sub">Roll it where your concealer cracks. Then do your makeup.</p>
+      <p class="sub sub-1">Roll it where your concealer cracks, then do your makeup.</p>
     </div>
     <figure class="heroshot">
       <img src="https://dabinvt-create.github.io/vt-creator-guides/stickbalm-cakey/img/hero.jpg" alt="VT PDRN Essence Stick Balm floating over a teal background with bubbles">
